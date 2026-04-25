@@ -1,4 +1,9 @@
 const sections = document.querySelectorAll(".reveal");
+const rootBody = document.body;
+
+requestAnimationFrame(() => {
+  rootBody.classList.add("is-ready");
+});
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -46,3 +51,20 @@ const navObserver = new IntersectionObserver(
 );
 
 trackedSections.forEach((section) => navObserver.observe(section));
+
+const interactivePanels = document.querySelectorAll(".interactive-panel");
+
+interactivePanels.forEach((panel) => {
+  panel.addEventListener("pointermove", (event) => {
+    const rect = panel.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    panel.style.setProperty("--spot-x", `${x}%`);
+    panel.style.setProperty("--spot-y", `${y}%`);
+  });
+
+  panel.addEventListener("pointerleave", () => {
+    panel.style.removeProperty("--spot-x");
+    panel.style.removeProperty("--spot-y");
+  });
+});

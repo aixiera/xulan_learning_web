@@ -11,7 +11,7 @@
     <link rel="preload" as="image" href="./assets/xulan-face.png" />
     <link rel="stylesheet" href="./shared/styles.css" />
   </head>
-  <body>
+  <body class="site-home">
     <div class="page-shell">
       <header class="topbar">
         <a class="brand-mark" href="#top">Xulan Learning</a>
@@ -25,30 +25,38 @@
       <main id="top">
         <section class="hero hub-hero">
           <div class="hero-copy hub-hero-copy">
-            <p class="eyebrow">Article System</p>
+            <p class="eyebrow">Editorial Infrastructure</p>
             <h1>
-              这不是单页临时稿，
-              <span>而是可继续扩展的文章站点。</span>
+              内容不再停留在单页展示，
+              <span>而是进入可持续扩展的专题体系。</span>
             </h1>
             <p class="lead">
-              我已经把 `xulan_learning_web` 整理成“首页 + 文章目录 + 文章子页”的结构。后面每一篇文章都可以独立拥有自己的文件夹、主页面、结构页和来源页，不会再全部堆在同一个根目录里。
+              `xulan_learning_web` 目前已经整理为“首页聚合 + 文章目录 + 子页面归档”的内容架构。后续每一篇文章都可以独立拥有自己的主页面、结构总览页与参考来源页，在保持统一视觉系统的同时，持续扩展为更完整的专题站点。
             </p>
+
+            <div class="hero-badges" aria-label="站点能力">
+              <span>文章归档</span>
+              <span>专题主页</span>
+              <span>结构总览</span>
+              <span>来源页</span>
+              <span>统一视觉系统</span>
+            </div>
 
             <div class="hero-actions">
               <a class="button button-primary" href="#articles">查看第一篇文章</a>
               <a class="button button-secondary" href="#structure">看目录结构</a>
             </div>
 
-            <div class="hero-quote panel">
+            <div class="hero-quote panel interactive-panel">
               <p class="quote-label">当前站点定位</p>
               <p class="quote-text">
-                首页负责聚合入口，文章页负责承载正文，子页面负责结构总览与来源拆分。
+                首页负责内容导航与归档入口，文章页负责承载完整正文，子页面则用于拆分结构摘要、引用来源与后续延展内容。
               </p>
             </div>
           </div>
 
           <div class="hero-side">
-            <aside class="speaker-card panel">
+            <aside class="speaker-card panel interactive-panel">
               <img src="./assets/xulan-face.png" alt="序蓝头像" />
               <div class="speaker-meta">
                 <p class="speaker-tag">内容站点</p>
@@ -72,7 +80,7 @@
               </div>
             </aside>
 
-            <div class="panel hub-mini-map">
+            <div class="panel hub-mini-map interactive-panel">
               <p class="mini-label">站点地图</p>
               <div class="expanded-stack">
                 <div><span>01</span>首页目录</div>
@@ -87,25 +95,25 @@
         <section class="section reveal" id="articles">
           <div class="section-heading">
             <p class="section-kicker">Articles</p>
-            <h2>第一篇文章已经独立归档</h2>
+            <h2>首篇专题已经完成独立归档</h2>
             <p>
-              这篇文章不再直接挂在根目录首页，而是单独收进文章目录里。后续第二篇、第三篇继续沿用同样的命名和层级即可。
+              文章已经从根目录展示页中拆分出来，进入独立专题目录。后续新增内容时，可以在统一结构下继续扩展，不需要反复重做页面组织方式。
             </p>
           </div>
 
           <div class="directory-grid">
-            <article class="directory-card panel">
+            <article class="directory-card panel interactive-panel">
               <p class="mini-label">Article 01</p>
               <h3>AI 都这么强了，它真正依赖的到底是什么？</h3>
               <p class="page-summary">
-                文章主页面，承载完整长文、七层依赖链、人的视角和网页阅读版排版。
+                主页面承载完整长文、七层依赖链、人的视角与网页阅读版排版；同时保留可拆分的结构摘要与来源子页面。
               </p>
               <div class="directory-links">
                 <a href="./articles/ai-dependency-chain/index.html">打开文章主页</a>
                 <a href="./articles/ai-dependency-chain/overview.html">打开结构总览</a>
                 <a href="./articles/ai-dependency-chain/sources.html">打开参考来源</a>
               </div>
-              <p class="meta-row"><strong>目录名：</strong> `articles/ai-dependency-chain/`</p>
+              <p class="meta-row"><strong>归档路径：</strong> `articles/ai-dependency-chain/`</p>
             </article>
           </div>
         </section>
@@ -113,11 +121,11 @@
         <section class="section reveal" id="structure">
           <div class="section-heading">
             <p class="section-kicker">Structure</p>
-            <h2>现在的文件结构</h2>
-            <p>我按“共享资源”和“文章独立目录”拆开了文件，后面维护会清晰很多。</p>
+            <h2>当前文件结构已经分层整理</h2>
+            <p>站点文件目前按“共享资源”与“文章独立目录”两层拆分，既方便维护，也方便后续持续增加内容。</p>
           </div>
 
-          <article class="essay-card panel">
+          <article class="essay-card panel interactive-panel">
             <div class="essay-body">
               <pre class="structure-code"><code>xulan_learning_web/
 ├─ index.html
@@ -138,13 +146,13 @@
         <section class="section reveal" id="workflow">
           <div class="section-heading">
             <p class="section-kicker">Workflow</p>
-            <h2>后面每篇文章怎么继续加</h2>
-            <p>我先按第一篇文章把模板定好了，后面新增文章时直接复制目录结构再换内容即可。</p>
+            <h2>后续新增文章可以沿用同一套模板</h2>
+            <p>第一篇文章已经把目录规则和页面关系定下来，之后新增内容时，只需要复制目录并替换内容与素材即可。</p>
           </div>
 
           <div class="perspective-grid">
-            <article class="perspective-card panel">
-              <p class="mini-label">建议固定模版</p>
+            <article class="perspective-card panel interactive-panel">
+              <p class="mini-label">建议固定模板</p>
               <ul>
                 <li>`articles/文章英文名/index.html`：完整文章主页面</li>
                 <li>`articles/文章英文名/overview.html`：结构总览页</li>
@@ -152,7 +160,7 @@
               </ul>
             </article>
 
-            <article class="perspective-card panel">
+            <article class="perspective-card panel interactive-panel">
               <p class="mini-label">后续可继续补</p>
               <ul>
                 <li>文章封面图或插图放到对应文章自己的 `assets/` 子目录</li>
@@ -165,7 +173,7 @@
       </main>
 
       <footer class="footer">
-        <p>第一篇文章已经完成独立归档，后续可以直接继续往这个内容系统里加。</p>
+        <p>第一篇专题已经完成独立归档，后续内容可以直接沿用这套结构继续扩展。</p>
         <a href="#top">回到顶部</a>
       </footer>
     </div>

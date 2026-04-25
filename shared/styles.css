@@ -1,6 +1,6 @@
 :root {
   --bg: #f6fbff;
-  --surface: rgba(255, 255, 255, 0.82);
+  --surface: rgba(255, 255, 255, 0.8);
   --surface-strong: rgba(255, 255, 255, 0.94);
   --line: rgba(76, 132, 198, 0.18);
   --line-strong: rgba(76, 132, 198, 0.34);
@@ -10,7 +10,7 @@
   --cyan: #52c4ff;
   --deep: #0d2f78;
   --glow: rgba(30, 99, 255, 0.16);
-  --shadow: 0 24px 70px rgba(31, 77, 143, 0.12);
+  --shadow: 0 20px 56px rgba(31, 77, 143, 0.1);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -31,8 +31,8 @@ body {
   font-family: "MiSans", "HarmonyOS Sans SC", "Noto Sans SC", "Source Han Sans SC", "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 18% 16%, rgba(82, 196, 255, 0.26), transparent 28%),
-    radial-gradient(circle at 82% 8%, rgba(30, 99, 255, 0.18), transparent 22%),
+    radial-gradient(circle at 18% 16%, rgba(82, 196, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 82% 8%, rgba(30, 99, 255, 0.14), transparent 22%),
     linear-gradient(180deg, #f8fcff 0%, #eef7ff 46%, #f7fbff 100%);
 }
 
@@ -55,8 +55,9 @@ body::before {
 
 body::after {
   background:
-    radial-gradient(circle at 80% 24%, rgba(82, 196, 255, 0.12), transparent 15%),
-    radial-gradient(circle at 10% 70%, rgba(30, 99, 255, 0.12), transparent 18%);
+    radial-gradient(circle at 80% 24%, rgba(82, 196, 255, 0.09), transparent 15%),
+    radial-gradient(circle at 10% 70%, rgba(30, 99, 255, 0.08), transparent 18%);
+  animation: ambient-drift 20s ease-in-out infinite alternate;
 }
 
 a {
@@ -87,18 +88,18 @@ img {
   margin-top: 18px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(18px);
-  box-shadow: 0 14px 40px rgba(31, 77, 143, 0.08);
+  box-shadow: 0 12px 34px rgba(31, 77, 143, 0.07);
 }
 
 .brand-mark {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.94rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -119,9 +120,10 @@ img {
 }
 
 .topnav a {
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-radius: 999px;
   color: var(--muted);
+  font-size: 0.88rem;
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
@@ -137,11 +139,11 @@ img {
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   gap: 34px;
   align-items: start;
-  padding: 54px 0 20px;
+  padding: 48px 0 18px;
 }
 
 .hero-copy {
-  padding-top: 30px;
+  padding-top: 24px;
 }
 
 .eyebrow,
@@ -151,17 +153,17 @@ img {
 .speaker-tag,
 .source-type {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--blue);
 }
 
 .hero h1 {
-  margin: 18px 0 18px;
-  font-size: clamp(3rem, 7vw, 5.9rem);
-  line-height: 0.96;
+  margin: 16px 0 16px;
+  font-size: clamp(2.5rem, 6vw, 4.9rem);
+  line-height: 0.94;
   letter-spacing: -0.05em;
 }
 
@@ -173,8 +175,8 @@ img {
 .lead {
   max-width: 710px;
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.9;
+  font-size: 0.98rem;
+  line-height: 1.82;
   color: var(--muted);
 }
 
@@ -182,16 +184,17 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .hero-badges span,
 .legacy-pills span {
-  padding: 10px 14px;
+  padding: 9px 13px;
   border: 1px solid rgba(30, 99, 255, 0.12);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.74);
   color: var(--deep);
+  font-size: 0.85rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
@@ -199,16 +202,17 @@ img {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0 20px;
+  min-height: 46px;
+  padding: 0 18px;
   border-radius: 999px;
+  font-size: 0.92rem;
   font-weight: 700;
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
@@ -220,7 +224,7 @@ img {
 .button-primary {
   color: #fff;
   background: linear-gradient(135deg, var(--blue), #3e8dff);
-  box-shadow: 0 16px 36px rgba(30, 99, 255, 0.24);
+  box-shadow: 0 14px 30px rgba(30, 99, 255, 0.2);
 }
 
 .button-secondary {
@@ -237,6 +241,7 @@ img {
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   overflow: hidden;
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
 
 .panel::after {
@@ -247,15 +252,37 @@ img {
   pointer-events: none;
 }
 
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(82, 196, 255, 0.18), transparent 26%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.interactive-panel:hover,
+.interactive-panel:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(30, 99, 255, 0.18);
+  box-shadow: 0 24px 50px rgba(31, 77, 143, 0.12);
+}
+
+.interactive-panel:hover::before,
+.interactive-panel:focus-within::before {
+  opacity: 1;
+}
+
 .hero-quote {
-  margin-top: 26px;
-  padding: 22px 24px;
+  margin-top: 22px;
+  padding: 20px 22px;
 }
 
 .quote-text {
   margin: 14px 0 0;
-  font-size: 1.08rem;
-  line-height: 1.8;
+  font-size: 0.98rem;
+  line-height: 1.72;
   color: #19325d;
 }
 
@@ -270,6 +297,7 @@ img {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(243, 250, 255, 0.9)),
     radial-gradient(circle at 20% 20%, rgba(82, 196, 255, 0.22), transparent 25%);
+  animation: card-float 8s ease-in-out infinite;
 }
 
 .orbit-grid {
@@ -331,7 +359,7 @@ img {
 }
 
 .orbit-core strong {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
   letter-spacing: -0.05em;
   color: var(--deep);
@@ -339,12 +367,12 @@ img {
 
 .orbit-node {
   position: absolute;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border: 1px solid rgba(30, 99, 255, 0.14);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #19325d;
-  font-size: 0.93rem;
+  font-size: 0.82rem;
   font-weight: 600;
   box-shadow: 0 10px 24px rgba(31, 77, 143, 0.1);
 }
@@ -392,7 +420,7 @@ img {
   display: flex;
   gap: 18px;
   align-items: center;
-  padding: 18px;
+  padding: 16px;
 }
 
 .speaker-card img {
@@ -407,7 +435,7 @@ img {
 
 .speaker-meta h2 {
   margin: 8px 0 6px;
-  font-size: 1.7rem;
+  font-size: 1.38rem;
   line-height: 1.1;
 }
 
@@ -420,20 +448,20 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .social-links a {
-  padding: 10px 12px;
+  padding: 8px 11px;
   border-radius: 999px;
   background: rgba(30, 99, 255, 0.08);
   color: var(--deep);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
 .section {
-  margin-top: 88px;
+  margin-top: 76px;
 }
 
 .reveal {
@@ -452,17 +480,17 @@ img {
 }
 
 .section-heading h2 {
-  margin: 14px 0 14px;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.05;
+  margin: 12px 0 12px;
+  font-size: clamp(1.72rem, 3.5vw, 2.68rem);
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
 .section-heading p:last-child {
   margin: 0;
   color: var(--muted);
-  font-size: 1.03rem;
-  line-height: 1.9;
+  font-size: 0.96rem;
+  line-height: 1.82;
 }
 
 .framework-card {
@@ -470,8 +498,8 @@ img {
   grid-template-columns: minmax(0, 0.72fr) auto minmax(0, 1fr);
   gap: 24px;
   align-items: center;
-  padding: 28px;
-  margin-top: 26px;
+  padding: 24px;
+  margin-top: 24px;
 }
 
 .legacy-pills {
@@ -483,7 +511,8 @@ img {
 
 .framework-note {
   margin: 18px 0 0;
-  line-height: 1.8;
+  font-size: 0.93rem;
+  line-height: 1.75;
   color: var(--muted);
 }
 
@@ -512,11 +541,12 @@ img {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 15px 18px;
+  padding: 13px 16px;
   border: 1px solid rgba(30, 99, 255, 0.12);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.78);
   color: #17316c;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 
@@ -563,12 +593,12 @@ img {
 .perspective-card,
 .closing-card,
 .flow-card {
-  padding: 24px;
+  padding: 22px;
 }
 
 .stat-value {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
   line-height: 1;
   letter-spacing: -0.05em;
   color: var(--deep);
@@ -576,7 +606,7 @@ img {
 
 .stat-title {
   margin: 10px 0 8px;
-  font-size: 1rem;
+  font-size: 0.94rem;
   font-weight: 700;
 }
 
@@ -586,7 +616,8 @@ img {
 .flow-summary p,
 .perspective-card li {
   color: var(--muted);
-  line-height: 1.8;
+  font-size: 0.93rem;
+  line-height: 1.75;
 }
 
 .layers-grid {
@@ -629,7 +660,7 @@ img {
 
 .flow-step {
   position: relative;
-  padding: 18px;
+  padding: 16px;
   border: 1px solid rgba(30, 99, 255, 0.12);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.8);
@@ -692,15 +723,16 @@ img {
 
 .closing-line {
   margin: 0;
-  font-size: 1.24rem;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  line-height: 1.72;
   color: #17316c;
 }
 
 .closing-question {
   margin: 14px 0 0;
   color: var(--muted);
-  line-height: 1.8;
+  font-size: 0.94rem;
+  line-height: 1.78;
 }
 
 .sources-grid {
@@ -755,6 +787,7 @@ img {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.76);
   color: var(--deep);
+  font-size: 0.88rem;
   font-weight: 700;
 }
 
@@ -766,8 +799,8 @@ img {
 .essay-headline h3,
 .directory-card h3 {
   margin: 10px 0 0;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
-  line-height: 1.15;
+  font-size: clamp(1.18rem, 2vw, 1.7rem);
+  line-height: 1.18;
   letter-spacing: -0.03em;
   color: var(--deep);
 }
@@ -783,8 +816,8 @@ img {
 .essay-body p {
   margin: 0;
   color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.95;
+  font-size: 0.95rem;
+  line-height: 1.86;
 }
 
 .essay-body p + p {
@@ -818,7 +851,7 @@ img {
 }
 
 .layer-essay {
-  padding: 28px;
+  padding: 24px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(244, 250, 255, 0.92)),
     radial-gradient(circle at top right, rgba(82, 196, 255, 0.18), transparent 28%);
@@ -857,8 +890,8 @@ img {
 
 .layer-essay h3 {
   margin: 6px 0 0;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  line-height: 1.15;
+  font-size: clamp(1.24rem, 2.1vw, 1.72rem);
+  line-height: 1.18;
   letter-spacing: -0.03em;
   color: var(--deep);
 }
@@ -868,8 +901,9 @@ img {
   padding-top: 18px;
   border-top: 1px solid rgba(30, 99, 255, 0.1);
   color: #17316c;
+  font-size: 0.94rem;
   font-weight: 700;
-  line-height: 1.8;
+  line-height: 1.72;
 }
 
 .references-list {
@@ -908,14 +942,15 @@ img {
 }
 
 .directory-card {
-  padding: 26px;
+  padding: 24px;
 }
 
 .page-summary,
 .meta-row {
   margin: 16px 0 0;
   color: var(--muted);
-  line-height: 1.8;
+  font-size: 0.94rem;
+  line-height: 1.76;
 }
 
 .directory-links {
@@ -944,7 +979,7 @@ img {
 
 .structure-code code {
   font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.8;
 }
 
@@ -968,7 +1003,7 @@ img {
 .outline-item h3,
 .source-page-item h3 {
   margin: 0;
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   color: var(--deep);
 }
 
@@ -976,7 +1011,77 @@ img {
 .source-page-item p {
   margin: 10px 0 0;
   color: var(--muted);
-  line-height: 1.8;
+  font-size: 0.93rem;
+  line-height: 1.74;
+}
+
+.hub-hero-copy {
+  max-width: 700px;
+}
+
+.hub-hero .hero-quote {
+  max-width: 640px;
+}
+
+.hub-mini-map .expanded-stack {
+  margin-top: 12px;
+}
+
+.directory-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(242, 248, 255, 0.92)),
+    radial-gradient(circle at top right, rgba(82, 196, 255, 0.16), transparent 30%);
+}
+
+.directory-links a::after,
+.source-page-item a::after {
+  content: "↗";
+  margin-left: 8px;
+  font-size: 0.84em;
+}
+
+.site-home .hero-copy,
+.site-home .hero-side,
+.site-home .topbar {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.site-home.is-ready .topbar {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.site-home.is-ready .hero-copy {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 620ms ease 80ms, transform 620ms ease 80ms;
+}
+
+.site-home.is-ready .hero-side {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 620ms ease 180ms, transform 620ms ease 180ms;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-2%, 1%, 0) scale(1.04);
+  }
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes rotate-slow {
@@ -1070,6 +1175,7 @@ img {
   .orbit-card {
     min-height: 420px;
     padding: 18px;
+    animation-duration: 10s;
   }
 
   .orbit-core {
