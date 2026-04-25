@@ -8,6 +8,12 @@
       name="description"
       content="从算力、数据、算法，一路展开到工具接口、Agent 框架、任务环境与治理信任，用中文长文专题页拆开 AI 背后的真实依赖链。"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preload" as="image" href="../../assets/xulan-face.png" />
     <link rel="stylesheet" href="../../shared/styles.css" />
   </head>
@@ -144,6 +150,258 @@
                 <div><span>07</span>治理、权限与可信边界</div>
               </div>
             </article>
+          </div>
+
+          <div class="dependency-console panel interactive-panel">
+            <div class="dependency-console-copy">
+              <p class="mini-label">Interactive Map</p>
+              <h2>先点一层，再回头读长文，会更快抓住 AI 真正的依赖结构。</h2>
+              <p>
+                这个小控台把“模型能力”拆成七个相互牵引的条件。点击不同层级，先看它卡住什么、放大什么，再带着这个视角去读后面的正文。
+              </p>
+            </div>
+
+            <div class="dependency-console-layout">
+              <div class="dependency-tabs" role="tablist" aria-label="AI 依赖层级">
+                <button
+                  class="dependency-tab tone-compute is-active"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-01"
+                  aria-selected="true"
+                  aria-controls="dep-panel-01"
+                  data-panel="dep-panel-01"
+                  data-meter="1"
+                >
+                  <strong>01 算力</strong>
+                  <span>电力、芯片、集群与推理成本</span>
+                </button>
+                <button
+                  class="dependency-tab tone-data"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-02"
+                  aria-selected="false"
+                  aria-controls="dep-panel-02"
+                  data-panel="dep-panel-02"
+                  data-meter="2"
+                >
+                  <strong>02 数据</strong>
+                  <span>文本之外，还要可验证的真实经验</span>
+                </button>
+                <button
+                  class="dependency-tab tone-algorithm"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-03"
+                  aria-selected="false"
+                  aria-controls="dep-panel-03"
+                  data-panel="dep-panel-03"
+                  data-meter="3"
+                >
+                  <strong>03 算法</strong>
+                  <span>不只是学得更多，还要想得更好</span>
+                </button>
+                <button
+                  class="dependency-tab tone-tools"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-04"
+                  aria-selected="false"
+                  aria-controls="dep-panel-04"
+                  data-panel="dep-panel-04"
+                  data-meter="4"
+                >
+                  <strong>04 工具接口</strong>
+                  <span>模型判断，工具接触现实</span>
+                </button>
+                <button
+                  class="dependency-tab tone-agent"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-05"
+                  aria-selected="false"
+                  aria-controls="dep-panel-05"
+                  data-panel="dep-panel-05"
+                  data-meter="5"
+                >
+                  <strong>05 Agent 框架</strong>
+                  <span>记忆、拆解、重试与停止机制</span>
+                </button>
+                <button
+                  class="dependency-tab tone-context"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-06"
+                  aria-selected="false"
+                  aria-controls="dep-panel-06"
+                  data-panel="dep-panel-06"
+                  data-meter="6"
+                >
+                  <strong>06 任务环境</strong>
+                  <span>问题定义越清楚，产出越有价值</span>
+                </button>
+                <button
+                  class="dependency-tab tone-governance"
+                  type="button"
+                  role="tab"
+                  id="dep-tab-07"
+                  aria-selected="false"
+                  aria-controls="dep-panel-07"
+                  data-panel="dep-panel-07"
+                  data-meter="7"
+                >
+                  <strong>07 治理信任</strong>
+                  <span>授权、审批、回滚与责任链</span>
+                </button>
+              </div>
+
+              <div class="dependency-stage">
+                <div class="dependency-meter" aria-hidden="true">
+                  <span class="is-on"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="dependency-panel-stack">
+                  <article
+                    class="dependency-panel tone-compute is-active"
+                    id="dep-panel-01"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-01"
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>算力不是抽象资源，它是最硬的物理约束。</h3>
+                    <p>
+                      当训练更大、推理更长、用户更多时，真正先撞上的往往不是“想法不够”，而是 GPU、供电、散热、网络和单位成本。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>芯片供应</span>
+                      <span>电力容量</span>
+                      <span>推理成本</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-data"
+                    id="dep-panel-02"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-02"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>数据的下一阶段，不是更多文本，而是更像现实的经验。</h3>
+                    <p>
+                      公开文本让模型学会描述世界，但真实反馈、结果记录和多模态任务，才能让它学会一个动作进入世界后会发生什么。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>真实反馈</span>
+                      <span>专业知识</span>
+                      <span>多模态经验</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-algorithm"
+                    id="dep-panel-03"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-03"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>算法决定的，不只是学到什么，还有遇到不确定时怎么想。</h3>
+                    <p>
+                      模型变强，越来越依赖推理策略、自我检查、后训练和计算效率。它不再只是“知道多少”，而是“会不会停下来想清楚”。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>推理策略</span>
+                      <span>后训练</span>
+                      <span>计算效率</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-tools"
+                    id="dep-panel-04"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-04"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>工具接口让模型越出文字层，也让错误变得真实。</h3>
+                    <p>
+                      当 AI 开始读数据库、调 API、操作浏览器或更新系统时，它的能力和风险会一起上升。接口越强，对边界的要求也越高。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>MCP / API</span>
+                      <span>工具调用</span>
+                      <span>权限边界</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-agent"
+                    id="dep-panel-05"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-05"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>Agent 框架的价值，在于它怎样组织一个不稳定的智能体。</h3>
+                    <p>
+                      记忆、上下文、任务拆解、重试、停止机制、成本控制这些东西，决定了一个 AI 是“会回答”，还是“真能工作”。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>记忆管理</span>
+                      <span>任务拆解</span>
+                      <span>停止机制</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-context"
+                    id="dep-panel-06"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-06"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>人越能定义问题，AI 就越能把输出变成价值。</h3>
+                    <p>
+                      模型并不自带完整任务环境。目标、边界、素材、时间、判断标准越清楚，AI 就越有机会从“像模板”变成“能落地”。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>目标清晰</span>
+                      <span>边界定义</span>
+                      <span>评价标准</span>
+                    </div>
+                  </article>
+
+                  <article
+                    class="dependency-panel tone-governance"
+                    id="dep-panel-07"
+                    role="tabpanel"
+                    aria-labelledby="dep-tab-07"
+                    hidden
+                  >
+                    <p class="dependency-panel-kicker">当前焦点</p>
+                    <h3>AI 的终点不是无限放权，而是可控行动。</h3>
+                    <p>
+                      授权、审批、日志、回滚、成本限制和责任链，让一个可以做事的 AI 不会变成一个不可控的风险源。
+                    </p>
+                    <div class="dependency-tags">
+                      <span>审批流程</span>
+                      <span>日志回滚</span>
+                      <span>责任链</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

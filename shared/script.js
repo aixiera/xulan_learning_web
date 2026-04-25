@@ -115,3 +115,68 @@ if (chapterRailLinks.length) {
 
   chapterTargets.forEach(({ target }) => chapterObserver.observe(target));
 }
+
+const dependencyTabs = Array.from(document.querySelectorAll(".dependency-tab"));
+const dependencyPanels = Array.from(document.querySelectorAll(".dependency-panel"));
+const dependencyMeterSegments = Array.from(document.querySelectorAll(".dependency-meter span"));
+
+if (dependencyTabs.length && dependencyPanels.length) {
+  const activateDependencyPanel = (nextTab) => {
+    const panelId = nextTab.dataset.panel;
+    const meterCount = Number(nextTab.dataset.meter || "0");
+
+    dependencyTabs.forEach((tab) => {
+      const isActive = tab === nextTab;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+
+    dependencyPanels.forEach((panel) => {
+      const isActive = panel.id === panelId;
+      panel.classList.toggle("is-active", isActive);
+      panel.hidden = !isActive;
+    });
+
+    dependencyMeterSegments.forEach((segment, index) => {
+      segment.classList.toggle("is-on", index < meterCount);
+    });
+  };
+
+  dependencyTabs.forEach((tab, index) => {
+    tab.tabIndex = tab.classList.contains("is-active") ? 0 : -1;
+
+    tab.addEventListener("click", () => {
+      activateDependencyPanel(tab);
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      const navigationKeys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+
+      if (!navigationKeys.includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      let nextIndex = index;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        nextIndex = (index + 1) % dependencyTabs.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (index - 1 + dependencyTabs.length) % dependencyTabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = dependencyTabs.length - 1;
+      }
+
+      const nextTab = dependencyTabs[nextIndex];
+      activateDependencyPanel(nextTab);
+      nextTab.focus();
+    });
+  });
+
+  const initialTab = dependencyTabs.find((tab) => tab.classList.contains("is-active")) || dependencyTabs[0];
+  activateDependencyPanel(initialTab);
+}
