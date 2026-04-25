@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 都这么强了，它真正依赖的到底是什么？</title>
+    <meta
+      name="description"
+      content="从算力、数据、算法，一路展开到工具接口、Agent 框架、任务环境与治理信任，用中文长文专题页拆开 AI 背后的真实依赖链。"
+    />
+    <link rel="preload" as="image" href="../../assets/xulan-face.png" />
+    <link rel="stylesheet" href="../../shared/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="../../index.html">Xulan Learning</a>
+        <nav class="topnav" aria-label="页面导航">
+          <a href="#overview">开场</a>
+          <a href="#layers">七层系统</a>
+          <a href="#agent-flow">中间层</a>
+          <a href="#human-view">人的位置</a>
+          <a href="#sources">来源</a>
+        </nav>
+      </header>
+
+      <div class="article-switcher">
+        <a class="switch-link is-active" href="./index.html">文章主页</a>
+        <a class="switch-link" href="./overview.html">结构总览</a>
+        <a class="switch-link" href="./sources.html">参考来源</a>
+      </div>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">AI 的依赖链，不在榜单上，而在现实系统里</p>
+            <h1>
+              AI 都这么强了，
+              <span>它真正依赖的到底是什么？</span>
+            </h1>
+            <p class="lead">
+              这期先把结论说在前面：今天的人工智能，表面上依赖的是算力、数据和算法；往深处看，它依赖的是一整套现实系统。它不是一个单独漂在云端里的模型，而是被芯片、电力、数据中心、训练方法、工具接口、任务环境和信任机制共同托起来的技术体系。
+            </p>
+
+            <div class="hero-badges" aria-label="关键词">
+              <span>算力</span>
+              <span>数据</span>
+              <span>算法</span>
+              <span>工具接口</span>
+              <span>Agent 框架</span>
+              <span>任务环境</span>
+              <span>治理信任</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#overview">开始阅读</a>
+              <a class="button button-secondary" href="#sources">看参考来源</a>
+            </div>
+
+            <div class="hero-quote panel">
+              <p class="quote-label">这期核心判断</p>
+              <p class="quote-text">
+                AI 越强，越不是单纯的“模型变聪明”。
+                <br />
+                它越强，越依赖现实世界。
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="orbit-card panel" aria-hidden="true">
+              <div class="orbit-grid"></div>
+              <div class="orbit-ring orbit-ring-one"></div>
+              <div class="orbit-ring orbit-ring-two"></div>
+              <div class="orbit-core">
+                <span class="core-kicker">Reality Stack</span>
+                <strong>AI</strong>
+                <span class="core-caption">从模型，到系统</span>
+              </div>
+              <div class="orbit-node node-1">算力</div>
+              <div class="orbit-node node-2">数据</div>
+              <div class="orbit-node node-3">算法</div>
+              <div class="orbit-node node-4">工具接口</div>
+              <div class="orbit-node node-5">Agent 框架</div>
+              <div class="orbit-node node-6">任务环境</div>
+              <div class="orbit-node node-7">治理信任</div>
+            </div>
+
+            <aside class="speaker-card panel">
+              <img src="../../assets/xulan-face.png" alt="序蓝头像" />
+              <div class="speaker-meta">
+                <p class="speaker-tag">本期网页稿</p>
+                <h2>序蓝 · Xulan</h2>
+                <p class="speaker-credit">Kairui Bi 制作</p>
+                <div class="social-links">
+                  <a href="https://space.bilibili.com/1633897017" target="_blank" rel="noopener noreferrer">
+                    Bilibili
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCGqo7xqXjxtPmGkUPTQap-Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    YouTube
+                  </a>
+                  <a href="https://xhslink.com/m/4A08oihPmJo" target="_blank" rel="noopener noreferrer">
+                    小红书
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section reveal" id="overview">
+          <div class="section-heading">
+            <p class="section-kicker">Opening</p>
+            <h2>先别从工具开始看，先看它背后的底层框架</h2>
+            <p>
+              很多人现在聊 AI，最容易从工具开始聊。但如果只看工具，我们就会误以为 AI 的进步只是产品界面的变化，是一个聊天框变得更顺手，是一个按钮生成得更快。
+            </p>
+          </div>
+
+          <article class="essay-card panel intro-card">
+            <div class="essay-headline">
+              <p class="mini-label">导语</p>
+              <h3>真正值得问的，不是 AI 有没有用，而是它的能力从哪里来</h3>
+            </div>
+            <div class="essay-body">
+              <p>
+                可《计算》这本书里讲人工智能的时候，给了一个更底层的框架：人工智能技术是电子计算机发展的产物，它的发展同样依赖计算的关键要素。书里把这个问题压缩成三个词：算力、数据、算法。
+              </p>
+              <p>
+                这三个词听起来很技术，但它们其实决定了 AI 能不能继续往前走。算力决定模型能不能被训练出来，能不能承担复杂推理，能不能在真实用户量下运行；数据决定模型到底学到了什么，它接触的是公开文本、专业知识，还是来自现实任务的反馈；算法决定模型怎样使用这些算力和数据，怎样学习，怎样推理，怎样调用工具，怎样从一次回答走向一套行动过程。
+              </p>
+              <p>
+                所以今天我们要讲的不是“AI 有没有用”。这个问题已经不用再争。真正值得问的是：AI 的能力从哪里来？它受什么限制？它未来继续发展，最需要补上的短板是什么？以及普通人到底应该怎样理解它，而不是被它带来的速度压力推着走。
+              </p>
+            </div>
+          </article>
+
+          <div class="framework-card panel">
+            <div class="legacy-column">
+              <p class="mini-label">《计算》里的底座</p>
+              <div class="legacy-pills">
+                <span>算力</span>
+                <span>数据</span>
+                <span>算法</span>
+              </div>
+              <p class="framework-note">
+                这三层没有过时，它们仍然是 AI 发展的原始骨架。
+              </p>
+            </div>
+
+            <div class="framework-arrow">展开</div>
+
+            <div class="expanded-column">
+              <p class="mini-label">今天的真实依赖链</p>
+              <div class="expanded-stack">
+                <div><span>01</span>物理基础设施</div>
+                <div><span>02</span>高质量经验</div>
+                <div><span>03</span>推理与后训练</div>
+                <div><span>04</span>工具和接口</div>
+                <div><span>05</span>Agent 框架</div>
+                <div><span>06</span>任务环境</div>
+                <div><span>07</span>治理和信任</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card panel">
+              <p class="stat-value">945 TWh</p>
+              <p class="stat-title">2030 数据中心用电</p>
+              <p class="stat-desc">
+                IEA 在基准情景下预计，全球数据中心用电量到 2030 年将达到约 945 TWh。<a class="citation" href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noopener noreferrer">[1]</a>
+              </p>
+            </article>
+
+            <article class="stat-card panel">
+              <p class="stat-value">300T</p>
+              <p class="stat-title">质量调整后公开文本</p>
+              <p class="stat-desc">
+                Epoch AI 估计，人类公开文本在质量和重复度调整后大约处于 300 万亿 token 量级。<a class="citation" href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data" target="_blank" rel="noopener noreferrer">[3]</a>
+              </p>
+            </article>
+
+            <article class="stat-card panel">
+              <p class="stat-value">671B / 37B</p>
+              <p class="stat-title">DeepSeek-V3 MoE</p>
+              <p class="stat-desc">
+                DeepSeek-V3 官方技术说明给出 671B 总参数、每个 token 激活 37B 的 MoE 设计。<a class="citation" href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank" rel="noopener noreferrer">[6]</a>
+              </p>
+            </article>
+
+            <article class="stat-card panel">
+              <p class="stat-value">~66%</p>
+              <p class="stat-title">OSWorld Agent 成功率</p>
+              <p class="stat-desc">
+                Stanford HAI 指出，AI agent 在真实电脑任务基准上进步很快，但仍会在结构化任务里频繁失败。<a class="citation" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">[8]</a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="layers">
+          <div class="section-heading">
+            <p class="section-kicker">Seven Layers</p>
+            <h2>把 AI 展开看，它至少依赖七层系统</h2>
+            <p>
+              榜单告诉你它在测试题上表现如何，依赖链告诉你它能不能进入现实。下面这七层，就是这次口播稿真正想拆开的部分。
+            </p>
+          </div>
+
+          <div class="layer-essays">
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>01</span>
+                <div>
+                  <p class="layer-essay-tag">算力</p>
+                  <h3>前端很轻，后台很重</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  很多人对 AI 的体验，是打开一个网页，输入一句话，等几秒钟，答案就出来了。这个动作太轻了，所以我们很容易忘记，它背后是非常重的物理基础设施。
+                </p>
+                <p>
+                  一个大模型能不能训练，不只取决于研究员有没有想法，也取决于有没有足够的 GPU、显存、高速网络、服务器集群、数据中心、电力供应和冷却系统。模型能不能服务大量用户，也不只是算法问题，还要看推理时的计算成本能不能承受，看网络延迟能不能控制，看服务器能不能稳定运行。
+                </p>
+                <p>
+                  国际能源署的 Energy and AI 报告里给过一个很直接的数字：在基准情景下，全球数据中心用电量预计到 2030 年会达到约 945 TWh，接近全球总用电量的 3%，而且从 2024 到 2030 年，数据中心用电增长速度大约是其他部门总用电增长速度的四倍以上。<a class="citation" href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noopener noreferrer">[1]</a>
+                </p>
+                <p>
+                  这说明 AI 的成本不是只发生在模型公司的报表里。它会发生在电网里，发生在数据中心选址里，发生在芯片供应链里，发生在能源结构里。
+                </p>
+                <ul class="micro-points">
+                  <li>硬件供给：先进芯片、封装、显存、服务器和集群部署，都不是短期可以随意扩张的资源。</li>
+                  <li>能源供给：推理需求起来之后，用电不只集中在训练阶段，而是分散到每一天、每一次请求、每一个用户任务里。</li>
+                  <li>成本供给：复杂上下文、深度推理、工具调用和长任务链路，让推理本身也开始变贵。</li>
+                </ul>
+                <p>
+                  OpenAI 在介绍 o1 时提到，模型能力会随着更多强化学习训练计算，以及更多测试时思考时间而提升。换句话说，模型在回答阶段分配更多计算，也可能带来更好的表现。<a class="citation" href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noopener noreferrer">[2]</a>
+                </p>
+              </div>
+              <p class="layer-closing">这就是第一层结论：AI 的回答发生在屏幕上，但 AI 的成本发生在现实里。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>02</span>
+                <div>
+                  <p class="layer-essay-tag">数据</p>
+                  <h3>模型不只要更多文本，它更需要可验证经验</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  如果说算力决定模型能不能被训练出来，那么数据决定模型到底学到了什么。过去几年，大模型最重要的成长路径，是吸收大量公开文本。网页、书籍、代码、论坛、论文、新闻、问答、产品文档，这些内容共同组成了模型理解语言和世界的基础。
+                </p>
+                <p>
+                  但这条路径正在遇到新的瓶颈。Epoch AI 的研究估计，经过质量和重复度调整的人类公开文本大约在 300 万亿 token 量级；如果趋势持续，语言模型可能会在 2026 到 2032 年之间充分利用这部分公开文本库存。<a class="citation" href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data" target="_blank" rel="noopener noreferrer">[3]</a>
+                </p>
+                <p>
+                  这并不是说数据会突然用完，而是普通公开文本的边际价值正在下降。下一阶段，AI 需要的不是简单地“更多文本”，而是“更高质量、更接近真实任务的数据”。
+                </p>
+                <p>
+                  这包括专业数据、企业内部知识、医疗影像、法律案例、工业设备日志、机器人操作轨迹、真实用户反馈、多模态视频，以及模型行动后的结果记录。公开文本告诉 AI，人类怎样描述世界；真实反馈告诉 AI，一个动作进入世界以后会发生什么。
+                </p>
+                <p>
+                  所以现在很多研究重新强调世界模型、多模态学习和空间智能。Meta 在介绍 V-JEPA 2 时，把它称为一种基于视频训练的世界模型，目标是提升 AI agent 对物理世界的理解和预测能力，并让系统能在新环境中进行规划和机器人控制。<a class="citation" href="https://about.fb.com/news/2025/06/our-new-model-helps-ai-think-before-it-acts/" target="_blank" rel="noopener noreferrer">[4]</a>
+                </p>
+              </div>
+              <p class="layer-closing">这就是第二层结论：AI 依赖数据，但更准确地说，它依赖可验证、可更新、可反馈的经验。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>03</span>
+                <div>
+                  <p class="layer-essay-tag">算法</p>
+                  <h3>模型变强，不只靠学得更多，也靠想得更好</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  书里讲算法依赖，会提到神经网络、Transformer、强化学习、世界模型。这些当然重要。但站在今天看，算法已经不只是模型结构本身。更重要的是，模型怎样学习，怎样推理，怎样节省计算，怎样在不确定时检查自己，怎样把一个复杂任务拆成多个步骤。
+                </p>
+                <p>
+                  过去我们常常把 AI 能力理解成“模型里存了多少知识”。但现在越来越明显，模型能力不只来自预训练阶段读过多少内容，还来自后训练阶段被塑造成什么行为。
+                </p>
+                <p>
+                  它会不会先理解问题？会不会拆分条件？会不会检查矛盾？会不会在不确定时搜索更多证据？会不会调用工具验证？会不会发现自己走错了，然后调整路径？
+                </p>
+                <p>
+                  DeepSeek-R1 的论文指出，语言模型的推理能力可以通过强化学习被激励出来，并出现自我反思、验证和动态策略调整等高级推理模式。<a class="citation" href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">[5]</a>
+                </p>
+                <p>
+                  DeepSeek-V3 的技术报告也显示，模型进步不只有“规模扩大”这一条路线。DeepSeek-V3 是一个 MoE 模型，总参数 671B，每个 token 激活 37B 参数，使用 14.8T token 预训练，并通过 MLA、DeepSeekMoE、多 token 预测等方法提高训练和推理效率。<a class="citation" href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank" rel="noopener noreferrer">[6]</a>
+                </p>
+              </div>
+              <p class="layer-closing">这就是第三层结论：AI 的能力，越来越依赖它怎样思考，而不只是它学了多少。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>04</span>
+                <div>
+                  <p class="layer-essay-tag">工具和接口</p>
+                  <h3>模型负责判断，工具负责接触现实</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  今天我们觉得 AI 变强了，很多时候不只是模型本体变强了，而是模型开始接入外部工具。它能搜索网页，读取 PDF，分析表格，运行代码，调用函数，连接数据库，操作浏览器，接入邮箱、日历、CRM、Notion、GitHub、n8n、Zapier 或企业后台。
+                </p>
+                <p>
+                  Anthropic 推出 Model Context Protocol 的时候，把 MCP 定义为一个开放标准，用来在数据源和 AI 工具之间建立安全的双向连接。开发者可以通过 MCP server 暴露数据，也可以构建连接这些 server 的 AI 应用。<a class="citation" href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">[7]</a>
+                </p>
+                <p>
+                  这个方向很重要，因为它解决的是 AI 落地中非常现实的问题：模型本身再强，如果被困在信息孤岛里，能力也会被限制。它可能会写 SQL，但如果没有安全访问数据库的接口，它就只能停在文字层；它可能会规划客户跟进，但如果不能读取客户状态、历史沟通和业务规则，它的规划就会停在泛泛建议。
+                </p>
+                <p>
+                  但一旦 AI 能做事，它的错误就不再只是答案错了。它可能发错邮件，改错表格，读取不该读取的文件，调用错误 API，也可能在权限过大的环境里造成真实损失。
+                </p>
+              </div>
+              <p class="layer-closing">所以第四层结论是：模型负责判断，工具负责接触现实；接口越强，越需要边界。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>05</span>
+                <div>
+                  <p class="layer-essay-tag">Agent 框架</p>
+                  <h3>真正重要的，不只是模型更强，还有谁更会组织模型</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  Agent 这个词现在被用得很多，但它真正重要的地方，不是名字，而是中间层。一个 AI 产品前端看起来可能很简单：一个输入框，一个聊天窗口，几个按钮，一个上传文件的入口。但真正影响体验的，往往藏在后面。
+                </p>
+                <p>
+                  它怎样组织上下文？怎样保存长期记忆？怎样拆分任务？怎样选择工具？怎样决定调用哪个模型？怎样失败重试？怎样控制成本？什么时候继续执行？什么时候停下来问用户？什么时候把任务交给另一个 Agent？
+                </p>
+                <p>
+                  这些东西合在一起，才是 Agent 框架。很多人会觉得，模型强就够了。但实际使用中，强模型如果没有好的任务组织，也会输出很散；中等模型如果被放进一个设计良好的框架里，反而可能在特定场景中表现很稳定。
+                </p>
+                <p>
+                  一个真正能用的 Agent，不应该只会积极执行。它还应该会停：当信息不足时停，当权限不够时停，当风险过高时停，当需要用户判断时停。
+                </p>
+              </div>
+              <p class="layer-closing">这就是第五层结论：未来真正重要的，不只是哪个模型更强，还有谁更会组织模型。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>06</span>
+                <div>
+                  <p class="layer-essay-tag">任务环境</p>
+                  <h3>人越能定义问题，AI 越能产生价值</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  这一层对普通人最重要。很多人用 AI，最常见的感受是：有时候很惊艳，有时候很空。有时候它能把问题拆得很清楚，有时候它写出来像模板。这里面当然有模型能力差异，但更常见的原因是任务环境不清楚。
+                </p>
+                <p>
+                  你让它写文案，却不给账号定位、受众、平台、风格、素材、限制，它只能写通用稿。你让它做分析，却不给资料来源、判断标准、时间范围，它只能用常识补。你让它规划项目，却不给预算、时间、目标、工具、风险约束，它只能给一套看起来完整但无法执行的路线。
+                </p>
+                <p>
+                  所以 AI 依赖的不只是输入一句提示词。它依赖一个清楚的任务场。目标要清楚，材料要清楚，边界要清楚，评价标准要清楚，下一步动作要清楚。
+                </p>
+                <p>
+                  很多人以为 prompt engineering 是把话写得更复杂。其实更重要的是把任务定义得更准确。你不是在和 AI 玩文字游戏，你是在把一个模糊需求，翻译成机器可以处理的任务结构。
+                </p>
+                <p>
+                  更稳的方式，是回到自己的任务环境：我每天最被什么消耗？是信息太乱？是任务启动太难？是资料太多看不完？是反复改格式？是写第一版太痛苦？还是明明有想法，但无法转成结构？
+                </p>
+              </div>
+              <p class="layer-closing">所以第六层结论是：AI 依赖任务环境。人越能定义问题，AI 越能产生价值。</p>
+            </article>
+
+            <article class="layer-essay panel">
+              <div class="layer-essay-head">
+                <span>07</span>
+                <div>
+                  <p class="layer-essay-tag">治理和信任</p>
+                  <h3>AI 的终点，不是无限放权，而是可控行动</h3>
+                </div>
+              </div>
+              <div class="essay-body">
+                <p>
+                  很多人看 AI，只看它会不会。但当 AI 进入真实流程以后，更重要的问题不是它会不会，而是它能不能被控制。
+                </p>
+                <p>
+                  Stanford HAI 的 2026 AI Index 提到一个很有代表性的现象：AI 模型可以在国际数学奥赛级任务上达到金牌水平，但顶级模型读取指针式时钟的正确率只有 50.1%；AI agent 在 OSWorld 真实电脑任务基准上的成功率从 12% 提升到约 66%，但在结构化任务里仍然大约每三次失败一次。<a class="citation" href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">[8]</a>
+                </p>
+                <p>
+                  这个现象说明，AI 的能力边界并不平滑。它可能在很难的问题上表现惊人，也可能在简单任务上突然出错。它可能写出很高级的推理，也可能误读一个基础信息。
+                </p>
+                <p>
+                  所以治理不是一句“安全很重要”。治理要落实成权限、日志、审批、回滚、隐私、成本限制和责任链。AI 能读取哪些数据？能调用哪些工具？哪些动作必须人工批准？出了问题谁负责？用户能不能撤回授权？
+                </p>
+              </div>
+              <p class="layer-closing">这就是第七层结论：AI 的终点不是无限放权，而是可控行动。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="agent-flow">
+          <div class="section-heading">
+            <p class="section-kicker">System Layer</p>
+            <h2>为什么体验差异，越来越发生在中间层</h2>
+            <p>
+              过去大家更关注基础模型本身。现在越来越多价值发生在系统层。一个模型会回答问题，价值是一层；一个系统能管理记忆、调用工具、拆分任务、接入业务、保留日志、控制权限，价值就完全不同。
+            </p>
+          </div>
+
+          <div class="flow-card panel">
+            <div class="flow-track">
+              <div class="flow-step">
+                <strong>上下文组织</strong>
+                <span>把目标、边界和资料先讲清楚</span>
+              </div>
+              <div class="flow-step">
+                <strong>记忆管理</strong>
+                <span>让多轮任务保持连续，而不是每次重来</span>
+              </div>
+              <div class="flow-step">
+                <strong>任务拆解</strong>
+                <span>把复杂目标翻译成一串可执行步骤</span>
+              </div>
+              <div class="flow-step">
+                <strong>工具调用</strong>
+                <span>搜索、文件、代码、数据库和业务系统</span>
+              </div>
+              <div class="flow-step">
+                <strong>重试校验</strong>
+                <span>发现错误后回滚、修正，再决定下一步</span>
+              </div>
+              <div class="flow-step">
+                <strong>停止机制</strong>
+                <span>在权限不足或风险过高时主动停下来</span>
+              </div>
+            </div>
+            <div class="flow-summary">
+              <p class="mini-label">中间层的价值</p>
+              <p>
+                普通脚本按规则走，Agent 系统要在不确定环境中持续判断。但判断越多，错误空间也越大，所以 Agent 框架的价值，不只在于“自动”，还在于“可控自动”。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal" id="human-view">
+          <div class="section-heading">
+            <p class="section-kicker">Human View</p>
+            <h2>普通人最稳的姿态，不是恐惧，也不是崇拜</h2>
+            <p>
+              对于普通人来说，也不需要把 AI 神化，更不需要每天被新工具追着跑。你真正要做的，是看清两件事：第一，AI 的能力来自哪里；第二，你自己的真实需求在哪里。
+            </p>
+          </div>
+
+          <article class="essay-card panel">
+            <div class="essay-body">
+              <p>
+                如果你需要学习，它可以帮你拆资料、做提纲、检查理解漏洞，但不能替你建立长期判断。如果你需要创作，它可以帮你冷启动、整理素材、改结构，但不能替你决定账号要表达什么。如果你需要做自动化，它可以帮你设计流程、写接口说明、检查异常分支，但不能替你承担客户数据和业务责任。
+              </p>
+              <p>
+                AI 可以承担很多工作，但它不能替人类承担每一个关键选择的后果。所以普通人面对 AI 最稳的姿态，不是恐惧，也不是崇拜，而是理解它：理解它的能力，理解它的限制，理解它的依赖链。
+              </p>
+              <p>
+                让它处理重复，让它整理混乱，让它承担冷启动，让它帮你生成初稿，让它接入流程，但不越过边界；让它提升效率，也保留人的判断。
+              </p>
+            </div>
+          </article>
+
+          <div class="perspective-grid">
+            <article class="perspective-card panel">
+              <p class="mini-label">AI 更适合帮你做</p>
+              <ul>
+                <li>整理资料和提炼结构</li>
+                <li>压缩重复劳动和格式性工作</li>
+                <li>做第一版草稿、提纲和概念地图</li>
+                <li>拆解自动化流程和异常分支</li>
+                <li>把混乱信息变成可处理清单</li>
+              </ul>
+            </article>
+
+            <article class="perspective-card panel">
+              <p class="mini-label">仍然要由你完成</p>
+              <ul>
+                <li>定义目标和优先级</li>
+                <li>做关键判断与价值取舍</li>
+                <li>承担数据、权限和业务责任</li>
+                <li>决定哪些边界不能跨</li>
+                <li>把长期方向从效率里区分出来</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="closing-card panel">
+            <p class="closing-line">
+              未来真正改变世界的 AI，未必只是最会聊天的模型。更可能是那些能稳定接入现实、承受约束、完成任务，并且被人类安全使用的一整套系统。
+            </p>
+            <p class="closing-question">
+              最后再回到《计算》里那个更大的问题：大模型到底是在理解世界，还是在做巨大规模的统计匹配？这个问题今天还没有结束。但有一点已经越来越清楚：它越强，越离不开现实。
+            </p>
+          </div>
+        </section>
+
+        <section class="section reveal" id="sources">
+          <div class="section-heading">
+            <p class="section-kicker">Sources</p>
+            <h2>正文中的参考来源</h2>
+            <p>本页正文出现的 [1] 到 [8] 对应以下材料，保留为网页稿尾注，方便继续延展阅读。</p>
+          </div>
+
+          <article class="references-list panel">
+            <ol>
+              <li>
+                <a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noopener noreferrer">
+                  IEA · Energy demand from AI
+                </a>
+              </li>
+              <li>
+                <a href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noopener noreferrer">
+                  OpenAI · Learning to reason with LLMs
+                </a>
+              </li>
+              <li>
+                <a href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data" target="_blank" rel="noopener noreferrer">
+                  Epoch AI · Will we run out of data? Limits of LLM scaling based on human-generated data
+                </a>
+              </li>
+              <li>
+                <a href="https://about.fb.com/news/2025/06/our-new-model-helps-ai-think-before-it-acts/" target="_blank" rel="noopener noreferrer">
+                  Meta · Our New Model Helps AI Think Before it Acts
+                </a>
+              </li>
+              <li>
+                <a href="https://www.nature.com/articles/s41586-025-09422-z" target="_blank" rel="noopener noreferrer">
+                  Nature · DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank" rel="noopener noreferrer">
+                  DeepSeek · DeepSeek-V3
+                </a>
+              </li>
+              <li>
+                <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">
+                  Anthropic · Introducing the Model Context Protocol
+                </a>
+              </li>
+              <li>
+                <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener noreferrer">
+                  Stanford HAI · The 2026 AI Index Report
+                </a>
+              </li>
+            </ol>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>我是序蓝。我们下期继续拆 AI 背后的真实结构。</p>
+        <a href="#top">回到顶部</a>
+      </footer>
+    </div>
+
+    <script src="../../shared/script.js"></script>
+  </body>
+</html>

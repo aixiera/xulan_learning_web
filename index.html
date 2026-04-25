@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xulan Learning · 文章目录</title>
+    <meta
+      name="description"
+      content="Xulan Learning 的文章站点首页。每一篇文章都单独归档为一个网页目录，并配套结构总览与参考来源子页面。"
+    />
+    <link rel="preload" as="image" href="./assets/xulan-face.png" />
+    <link rel="stylesheet" href="./shared/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="#top">Xulan Learning</a>
+        <nav class="topnav" aria-label="页面导航">
+          <a href="#articles">文章目录</a>
+          <a href="#structure">站点结构</a>
+          <a href="#workflow">后续扩展</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero hub-hero">
+          <div class="hero-copy hub-hero-copy">
+            <p class="eyebrow">Article System</p>
+            <h1>
+              这不是单页临时稿，
+              <span>而是可继续扩展的文章站点。</span>
+            </h1>
+            <p class="lead">
+              我已经把 `xulan_learning_web` 整理成“首页 + 文章目录 + 文章子页”的结构。后面每一篇文章都可以独立拥有自己的文件夹、主页面、结构页和来源页，不会再全部堆在同一个根目录里。
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#articles">查看第一篇文章</a>
+              <a class="button button-secondary" href="#structure">看目录结构</a>
+            </div>
+
+            <div class="hero-quote panel">
+              <p class="quote-label">当前站点定位</p>
+              <p class="quote-text">
+                首页负责聚合入口，文章页负责承载正文，子页面负责结构总览与来源拆分。
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <aside class="speaker-card panel">
+              <img src="./assets/xulan-face.png" alt="序蓝头像" />
+              <div class="speaker-meta">
+                <p class="speaker-tag">内容站点</p>
+                <h2>序蓝 · Xulan</h2>
+                <p class="speaker-credit">Kairui Bi 制作</p>
+                <div class="social-links">
+                  <a href="https://space.bilibili.com/1633897017" target="_blank" rel="noopener noreferrer">
+                    Bilibili
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCGqo7xqXjxtPmGkUPTQap-Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    YouTube
+                  </a>
+                  <a href="https://xhslink.com/m/4A08oihPmJo" target="_blank" rel="noopener noreferrer">
+                    小红书
+                  </a>
+                </div>
+              </div>
+            </aside>
+
+            <div class="panel hub-mini-map">
+              <p class="mini-label">站点地图</p>
+              <div class="expanded-stack">
+                <div><span>01</span>首页目录</div>
+                <div><span>02</span>文章主页</div>
+                <div><span>03</span>结构总览</div>
+                <div><span>04</span>参考来源</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal" id="articles">
+          <div class="section-heading">
+            <p class="section-kicker">Articles</p>
+            <h2>第一篇文章已经独立归档</h2>
+            <p>
+              这篇文章不再直接挂在根目录首页，而是单独收进文章目录里。后续第二篇、第三篇继续沿用同样的命名和层级即可。
+            </p>
+          </div>
+
+          <div class="directory-grid">
+            <article class="directory-card panel">
+              <p class="mini-label">Article 01</p>
+              <h3>AI 都这么强了，它真正依赖的到底是什么？</h3>
+              <p class="page-summary">
+                文章主页面，承载完整长文、七层依赖链、人的视角和网页阅读版排版。
+              </p>
+              <div class="directory-links">
+                <a href="./articles/ai-dependency-chain/index.html">打开文章主页</a>
+                <a href="./articles/ai-dependency-chain/overview.html">打开结构总览</a>
+                <a href="./articles/ai-dependency-chain/sources.html">打开参考来源</a>
+              </div>
+              <p class="meta-row"><strong>目录名：</strong> `articles/ai-dependency-chain/`</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal" id="structure">
+          <div class="section-heading">
+            <p class="section-kicker">Structure</p>
+            <h2>现在的文件结构</h2>
+            <p>我按“共享资源”和“文章独立目录”拆开了文件，后面维护会清晰很多。</p>
+          </div>
+
+          <article class="essay-card panel">
+            <div class="essay-body">
+              <pre class="structure-code"><code>xulan_learning_web/
+├─ index.html
+├─ assets/
+│  └─ xulan-face.png
+├─ shared/
+│  ├─ styles.css
+│  └─ script.js
+└─ articles/
+   └─ ai-dependency-chain/
+      ├─ index.html
+      ├─ overview.html
+      └─ sources.html</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="section reveal" id="workflow">
+          <div class="section-heading">
+            <p class="section-kicker">Workflow</p>
+            <h2>后面每篇文章怎么继续加</h2>
+            <p>我先按第一篇文章把模板定好了，后面新增文章时直接复制目录结构再换内容即可。</p>
+          </div>
+
+          <div class="perspective-grid">
+            <article class="perspective-card panel">
+              <p class="mini-label">建议固定模版</p>
+              <ul>
+                <li>`articles/文章英文名/index.html`：完整文章主页面</li>
+                <li>`articles/文章英文名/overview.html`：结构总览页</li>
+                <li>`articles/文章英文名/sources.html`：来源与引用页</li>
+              </ul>
+            </article>
+
+            <article class="perspective-card panel">
+              <p class="mini-label">后续可继续补</p>
+              <ul>
+                <li>文章封面图或插图放到对应文章自己的 `assets/` 子目录</li>
+                <li>根首页增加更多文章卡片</li>
+                <li>给每篇文章加发布日期、标签和上一篇/下一篇跳转</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>第一篇文章已经完成独立归档，后续可以直接继续往这个内容系统里加。</p>
+        <a href="#top">回到顶部</a>
+      </footer>
+    </div>
+
+    <script src="./shared/script.js"></script>
+  </body>
+</html>
