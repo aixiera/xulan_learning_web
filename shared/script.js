@@ -68,3 +68,50 @@ interactivePanels.forEach((panel) => {
     panel.style.removeProperty("--spot-y");
   });
 });
+
+const progressBar = document.querySelector(".reading-progress-bar");
+
+if (progressBar) {
+  const updateReadingProgress = () => {
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  };
+
+  updateReadingProgress();
+  window.addEventListener("scroll", updateReadingProgress, { passive: true });
+  window.addEventListener("resize", updateReadingProgress);
+}
+
+const chapterRailLinks = Array.from(document.querySelectorAll(".chapter-link"));
+
+if (chapterRailLinks.length) {
+  const chapterTargets = chapterRailLinks
+    .map((link) => {
+      const targetId = link.getAttribute("href");
+      const target = targetId ? document.querySelector(targetId) : null;
+      return target ? { link, target } : null;
+    })
+    .filter(Boolean);
+
+  const chapterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        chapterTargets.forEach(({ link, target }) => {
+          link.classList.toggle("is-current", target === entry.target);
+        });
+      });
+    },
+    {
+      threshold: 0.24,
+      rootMargin: "-16% 0px -56% 0px",
+    },
+  );
+
+  chapterTargets.forEach(({ target }) => chapterObserver.observe(target));
+}

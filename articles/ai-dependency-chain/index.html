@@ -11,7 +11,7 @@
     <link rel="preload" as="image" href="../../assets/xulan-face.png" />
     <link rel="stylesheet" href="../../shared/styles.css" />
   </head>
-  <body>
+  <body class="article-feature">
     <div class="page-shell">
       <header class="topbar">
         <a class="brand-mark" href="../../index.html">Xulan Learning</a>
@@ -30,14 +30,24 @@
         <a class="switch-link" href="./sources.html">参考来源</a>
       </div>
 
+      <div class="reading-progress" aria-hidden="true">
+        <span class="reading-progress-bar"></span>
+      </div>
+
       <main id="top">
-        <section class="hero">
+        <section class="hero feature-hero">
           <div class="hero-copy">
             <p class="eyebrow">AI 的依赖链，不在榜单上，而在现实系统里</p>
             <h1>
               AI 都这么强了，
               <span>它真正依赖的到底是什么？</span>
             </h1>
+            <div class="feature-meta-strip">
+              <span>Issue 01</span>
+              <span>专题长文</span>
+              <span>预计阅读 8 分钟</span>
+              <span>结构拆解 / AI 基础条件</span>
+            </div>
             <p class="lead">
               这期先把结论说在前面：今天的人工智能，表面上依赖的是算力、数据和算法；往深处看，它依赖的是一整套现实系统。它不是一个单独漂在云端里的模型，而是被芯片、电力、数据中心、训练方法、工具接口、任务环境和信任机制共同托起来的技术体系。
             </p>
@@ -57,7 +67,7 @@
               <a class="button button-secondary" href="#sources">看参考来源</a>
             </div>
 
-            <div class="hero-quote panel">
+            <div class="hero-quote panel interactive-panel">
               <p class="quote-label">这期核心判断</p>
               <p class="quote-text">
                 AI 越强，越不是单纯的“模型变聪明”。
@@ -68,7 +78,7 @@
           </div>
 
           <div class="hero-side">
-            <div class="orbit-card panel" aria-hidden="true">
+            <div class="orbit-card panel interactive-panel" aria-hidden="true">
               <div class="orbit-grid"></div>
               <div class="orbit-ring orbit-ring-one"></div>
               <div class="orbit-ring orbit-ring-two"></div>
@@ -86,7 +96,7 @@
               <div class="orbit-node node-7">治理信任</div>
             </div>
 
-            <aside class="speaker-card panel">
+            <aside class="speaker-card panel interactive-panel">
               <img src="../../assets/xulan-face.png" alt="序蓝头像" />
               <div class="speaker-meta">
                 <p class="speaker-tag">本期网页稿</p>
@@ -112,6 +122,31 @@
           </div>
         </section>
 
+        <section class="section reveal feature-intro-section">
+          <div class="feature-intro-grid">
+            <article class="panel editorial-note interactive-panel">
+              <p class="mini-label">Editorial Note</p>
+              <h2>这不是工具盘点，而是一篇关于 AI 基础条件的结构文章。</h2>
+              <p>
+                如果只看模型排行榜，我们看到的是“谁更会答题”；如果把依赖链展开，我们看到的才是“谁更可能进入现实”。这篇文章真正要讨论的，是 AI 变强背后那套常常被忽略的支撑系统。
+              </p>
+            </article>
+
+            <article class="panel chapter-snapshot interactive-panel">
+              <p class="mini-label">Reading Map</p>
+              <div class="chapter-snapshot-list">
+                <div><span>01</span>算力与物理基础设施</div>
+                <div><span>02</span>数据与高质量经验</div>
+                <div><span>03</span>算法、推理与后训练</div>
+                <div><span>04</span>工具接口与真实流程</div>
+                <div><span>05</span>Agent 框架与系统层</div>
+                <div><span>06</span>任务环境与人的问题定义</div>
+                <div><span>07</span>治理、权限与可信边界</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section class="section reveal" id="overview">
           <div class="section-heading">
             <p class="section-kicker">Opening</p>
@@ -121,7 +156,7 @@
             </p>
           </div>
 
-          <article class="essay-card panel intro-card">
+          <article class="essay-card panel intro-card interactive-panel">
             <div class="essay-headline">
               <p class="mini-label">导语</p>
               <h3>真正值得问的，不是 AI 有没有用，而是它的能力从哪里来</h3>
@@ -139,7 +174,7 @@
             </div>
           </article>
 
-          <div class="framework-card panel">
+          <div class="framework-card panel interactive-panel">
             <div class="legacy-column">
               <p class="mini-label">《计算》里的底座</p>
               <div class="legacy-pills">
@@ -169,7 +204,7 @@
           </div>
 
           <div class="stats-grid">
-            <article class="stat-card panel">
+            <article class="stat-card panel interactive-panel">
               <p class="stat-value">945 TWh</p>
               <p class="stat-title">2030 数据中心用电</p>
               <p class="stat-desc">
@@ -177,7 +212,7 @@
               </p>
             </article>
 
-            <article class="stat-card panel">
+            <article class="stat-card panel interactive-panel">
               <p class="stat-value">300T</p>
               <p class="stat-title">质量调整后公开文本</p>
               <p class="stat-desc">
@@ -185,7 +220,7 @@
               </p>
             </article>
 
-            <article class="stat-card panel">
+            <article class="stat-card panel interactive-panel">
               <p class="stat-value">671B / 37B</p>
               <p class="stat-title">DeepSeek-V3 MoE</p>
               <p class="stat-desc">
@@ -193,7 +228,7 @@
               </p>
             </article>
 
-            <article class="stat-card panel">
+            <article class="stat-card panel interactive-panel">
               <p class="stat-value">~66%</p>
               <p class="stat-title">OSWorld Agent 成功率</p>
               <p class="stat-desc">
@@ -212,8 +247,20 @@
             </p>
           </div>
 
-          <div class="layer-essays">
-            <article class="layer-essay panel">
+          <div class="layers-layout">
+            <aside class="chapter-rail panel interactive-panel">
+              <p class="mini-label">Chapter Rail</p>
+              <a class="chapter-link" href="#layer-01">01 算力</a>
+              <a class="chapter-link" href="#layer-02">02 数据</a>
+              <a class="chapter-link" href="#layer-03">03 算法</a>
+              <a class="chapter-link" href="#layer-04">04 工具接口</a>
+              <a class="chapter-link" href="#layer-05">05 Agent 框架</a>
+              <a class="chapter-link" href="#layer-06">06 任务环境</a>
+              <a class="chapter-link" href="#layer-07">07 治理信任</a>
+            </aside>
+
+            <div class="layer-essays">
+            <article class="layer-essay panel interactive-panel" id="layer-01">
               <div class="layer-essay-head">
                 <span>01</span>
                 <div>
@@ -246,7 +293,7 @@
               <p class="layer-closing">这就是第一层结论：AI 的回答发生在屏幕上，但 AI 的成本发生在现实里。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <article class="layer-essay panel interactive-panel" id="layer-02">
               <div class="layer-essay-head">
                 <span>02</span>
                 <div>
@@ -274,7 +321,12 @@
               <p class="layer-closing">这就是第二层结论：AI 依赖数据，但更准确地说，它依赖可验证、可更新、可反馈的经验。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <div class="chapter-pullquote panel interactive-panel">
+              <p class="quote-label">章节中线</p>
+              <p class="quote-text">AI 从文本走向世界，不只是语料升级，而是从“看过很多内容”走向“经历过可验证任务”。</p>
+            </div>
+
+            <article class="layer-essay panel interactive-panel" id="layer-03">
               <div class="layer-essay-head">
                 <span>03</span>
                 <div>
@@ -302,7 +354,7 @@
               <p class="layer-closing">这就是第三层结论：AI 的能力，越来越依赖它怎样思考，而不只是它学了多少。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <article class="layer-essay panel interactive-panel" id="layer-04">
               <div class="layer-essay-head">
                 <span>04</span>
                 <div>
@@ -327,7 +379,7 @@
               <p class="layer-closing">所以第四层结论是：模型负责判断，工具负责接触现实；接口越强，越需要边界。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <article class="layer-essay panel interactive-panel" id="layer-05">
               <div class="layer-essay-head">
                 <span>05</span>
                 <div>
@@ -352,7 +404,7 @@
               <p class="layer-closing">这就是第五层结论：未来真正重要的，不只是哪个模型更强，还有谁更会组织模型。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <article class="layer-essay panel interactive-panel" id="layer-06">
               <div class="layer-essay-head">
                 <span>06</span>
                 <div>
@@ -380,7 +432,7 @@
               <p class="layer-closing">所以第六层结论是：AI 依赖任务环境。人越能定义问题，AI 越能产生价值。</p>
             </article>
 
-            <article class="layer-essay panel">
+            <article class="layer-essay panel interactive-panel" id="layer-07">
               <div class="layer-essay-head">
                 <span>07</span>
                 <div>
@@ -404,6 +456,7 @@
               </div>
               <p class="layer-closing">这就是第七层结论：AI 的终点不是无限放权，而是可控行动。</p>
             </article>
+            </div>
           </div>
         </section>
 
@@ -416,7 +469,7 @@
             </p>
           </div>
 
-          <div class="flow-card panel">
+          <div class="flow-card panel interactive-panel">
             <div class="flow-track">
               <div class="flow-step">
                 <strong>上下文组织</strong>
@@ -461,7 +514,7 @@
             </p>
           </div>
 
-          <article class="essay-card panel">
+          <article class="essay-card panel interactive-panel">
             <div class="essay-body">
               <p>
                 如果你需要学习，它可以帮你拆资料、做提纲、检查理解漏洞，但不能替你建立长期判断。如果你需要创作，它可以帮你冷启动、整理素材、改结构，但不能替你决定账号要表达什么。如果你需要做自动化，它可以帮你设计流程、写接口说明、检查异常分支，但不能替你承担客户数据和业务责任。
@@ -476,7 +529,7 @@
           </article>
 
           <div class="perspective-grid">
-            <article class="perspective-card panel">
+            <article class="perspective-card panel interactive-panel">
               <p class="mini-label">AI 更适合帮你做</p>
               <ul>
                 <li>整理资料和提炼结构</li>
@@ -487,7 +540,7 @@
               </ul>
             </article>
 
-            <article class="perspective-card panel">
+            <article class="perspective-card panel interactive-panel">
               <p class="mini-label">仍然要由你完成</p>
               <ul>
                 <li>定义目标和优先级</li>
@@ -499,7 +552,7 @@
             </article>
           </div>
 
-          <div class="closing-card panel">
+          <div class="closing-card panel interactive-panel">
             <p class="closing-line">
               未来真正改变世界的 AI，未必只是最会聊天的模型。更可能是那些能稳定接入现实、承受约束、完成任务，并且被人类安全使用的一整套系统。
             </p>
@@ -516,7 +569,7 @@
             <p>本页正文出现的 [1] 到 [8] 对应以下材料，保留为网页稿尾注，方便继续延展阅读。</p>
           </div>
 
-          <article class="references-list panel">
+          <article class="references-list panel interactive-panel">
             <ol>
               <li>
                 <a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noopener noreferrer">
