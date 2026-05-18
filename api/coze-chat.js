@@ -49,26 +49,34 @@ module.exports = async function handler(req, res) {
     let currentEvent = "";
 
     raw.split("\n").forEach((line) => {
-      if (line.startsWith("event:")) {
+    if (line.startsWith("event:")) {
         currentEvent = line.replace("event:", "").trim();
-      }
+    }
 
-      if (line.startsWith("data:")) {
+    if (line.startsWith("data:")) {
         const dataText = line.replace("data:", "").trim();
-
         if (!dataText || dataText === "[DONE]") return;
 
         try {
-          const data = JSON.parse(dataText);
+        const data = JSON.parse(dataText);
 
-          if (
+        if (
             currentEvent === "conversation.message.delta" &&
+            data.type === "answer" &&
             data.content
-          ) {
+        ) {
             answer += data.content;
-          }
+        }
+
+        if (
+            currentEvent === "conversation.message.completed" &&
+            data.type === "answer" &&
+            data.content
+        ) {
+            answer = data.content;
+        }
         } catch (e) {}
-      }
+    }
     });
 
     return res.status(200).json({
