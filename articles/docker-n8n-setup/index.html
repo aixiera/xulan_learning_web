@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker + n8n 下载教程 | Xulan's AI Notes</title>
+    <meta
+      name="description"
+      content="从 BIOS 虚拟化、WSL2、Docker Desktop 到跑起 n8n，本地自动化环境的一条清晰入门路线。"
+    />
+    <link rel="stylesheet" href="../../shared/styles.css" />
+  </head>
+  <body data-page="blog">
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="../../index.html">Xulan's AI Notes</a>
+        <nav class="topnav" aria-label="主导航">
+          <a data-nav="home" href="../../index.html">主页</a>
+          <a data-nav="blog" href="../../blog/index.html">Blog</a>
+          <a data-nav="products" href="../../products/index.html">产品</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="article-hero reveal">
+          <div class="article-copy">
+            <p class="eyebrow">Tutorial · Issue 04</p>
+            <h1>
+              Docker +
+              <span>n8n 下载教程</span>
+            </h1>
+            <p class="lead">
+              这篇面向零基础用户，不要求你懂开发，也不要求先背命令。
+              重点是把几个最容易卡住的新手节点顺一遍：虚拟化、WSL2、Docker Desktop、镜像源和 n8n 容器。
+            </p>
+
+            <div class="page-meta">
+              <span>主题：教程</span>
+              <span>阅读：7 分钟</span>
+              <span>关键词：WSL2 / Docker Desktop / n8n</span>
+            </div>
+          </div>
+
+          <div class="article-visual panel interactive-panel">
+            <img class="main-cover" src="../../assets/blog-covers/docker-n8n-cover.png" alt="Docker n8n 教程封面" />
+            <img class="portrait-chip" src="../../assets/xulan-face-portrait.png" alt="序蓝头像" />
+          </div>
+        </section>
+
+        <section class="article-shell reveal">
+          <article class="article-body panel">
+            <h2>第一步先别急着装，先看机器底层条件</h2>
+            <p>
+              Docker 在 Windows 上常见的一条路线是依赖虚拟化和 WSL2，所以最先该做的不是下载软件，
+              而是确认 BIOS 里的虚拟化开关已经开启。常见名字会是 Intel VT-x、AMD-V 或 SVM Mode。
+            </p>
+            <p>
+              进系统之后，可以先打开任务管理器看 CPU 页面，确认虚拟化状态。这里不对，后面大概率会一直卡在启动阶段。
+            </p>
+
+            <h2>第二步是 WSL2 和处理器架构</h2>
+            <p>
+              安装 Docker Desktop 之前，先确认系统支持 WSL2 和虚拟机平台。
+              另外顺手看一眼自己的处理器架构：大多数电脑是 x64，就下载 AMD64 版本；如果是 ARM 处理器，再去选 ARM64。
+            </p>
+            <p>
+              这一步很容易因为版本和架构选错而返工，所以宁可这里多停两秒，也别急着一路下一步。
+            </p>
+
+            <h2>第三步才是 Docker Desktop 本体</h2>
+            <p>
+              安装过程通常保持默认推荐配置即可。第一次打开时，让它顺着提示把 Docker 和 WSL2 绑定好。
+              如果 Docker 一直转圈或者打不开，先回头检查前面两件事：虚拟化到底开没开，WSL2 到底装没装好。
+            </p>
+
+            <h2>第四步，把镜像源配置好</h2>
+            <p>
+              对很多新手来说，卡住的不是命令本身，而是下载镜像的速度和稳定性。
+              进入 Docker Desktop 的设置页后，找到 Docker Engine 或镜像源相关配置，把准备好的国内镜像源填进去并保存。
+            </p>
+            <p>
+              这一步非常关键，因为后面你装 n8n、Ollama 或其他本地工具时，拉镜像速度会差很多。
+            </p>
+
+            <h2>第五步，用最小命令把 n8n 跑起来</h2>
+            <p>建议先创建一个专门保存 n8n 数据的卷，再启动容器：</p>
+            <pre><code>docker volume create n8n_data
+
+docker run -it --rm --name n8n ^
+  -p 5678:5678 ^
+  -e GENERIC_TIMEZONE="Asia/Shanghai" ^
+  -e TZ="Asia/Shanghai" ^
+  -v n8n_data:/home/node/.n8n ^
+  docker.n8n.io/n8nio/n8n</code></pre>
+            <p>
+              这里最重要的不是一次记住所有参数，而是理解三件事：容器名称、端口映射、数据持久化。
+              只要数据卷配好了，你删掉容器之后，账号、配置和工作流数据也更容易保住。
+            </p>
+
+            <h2>常见卡点，其实大多都集中在前面</h2>
+            <ul>
+              <li>Docker 打不开：优先检查虚拟化和 WSL2。</li>
+              <li>镜像下载太慢：先回头看镜像源是否生效。</li>
+              <li>第一次进不去页面：确认容器日志正常，再打开 `http://localhost:5678`。</li>
+              <li>担心数据丢失：记得用卷或数据目录做持久化保存。</li>
+            </ul>
+            <p>
+              从零开始时，能把本地基础环境先搭顺，比一上来追求复杂工作流更重要。
+              先跑起来，你后面再接 Notion、邮件、表单、本地模型，路就会清楚很多。
+            </p>
+          </article>
+
+          <aside class="sidebar-stack">
+            <article class="sidebar-card panel interactive-panel">
+              <img class="mini-cover" src="../../assets/blog-covers/docker-n8n-cover.png" alt="文章封面缩略图" />
+              <p class="mini-label">Quick Take</p>
+              <h3>一句话版本</h3>
+              <p>先把虚拟化、WSL2 和 Docker 装顺，再谈 n8n 和后面的本地 AI 工作流。</p>
+            </article>
+
+            <article class="sidebar-card panel interactive-panel">
+              <p class="mini-label">最短清单</p>
+              <ul>
+                <li>开虚拟化</li>
+                <li>装 WSL2</li>
+                <li>装 Docker Desktop</li>
+                <li>配镜像源</li>
+                <li>跑 n8n 容器</li>
+              </ul>
+            </article>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>这篇更像一条清晰路线，而不是硬塞一堆命令。先搭好环境，后面很多工具都会变得顺手。</p>
+        <a href="../../blog/index.html">返回 Blog</a>
+      </footer>
+    </div>
+
+    <script src="../../shared/script.js"></script>
+  </body>
+</html>

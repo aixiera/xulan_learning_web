@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6 小时黑客松地图产品拆解 | Xulan's AI Notes</title>
+    <meta
+      name="description"
+      content="StagePulse Map 的产品拆解：一句话讲清价值、现场反馈闭环、技术取舍和黑客松里真正重要的表达能力。"
+    />
+    <link rel="stylesheet" href="../../shared/styles.css" />
+  </head>
+  <body data-page="blog">
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="../../index.html">Xulan's AI Notes</a>
+        <nav class="topnav" aria-label="主导航">
+          <a data-nav="home" href="../../index.html">主页</a>
+          <a data-nav="blog" href="../../blog/index.html">Blog</a>
+          <a data-nav="products" href="../../products/index.html">产品</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="article-hero reveal">
+          <div class="article-copy">
+            <p class="eyebrow">Product · Issue 05</p>
+            <h1>
+              黑客松第二名
+              <span>产品拆解</span>
+            </h1>
+            <p class="lead">
+              这篇围绕 StagePulse Map 展开。重点不是炫技术名词，而是看一个 6 小时做出来的产品，
+              为什么能用一句话讲清楚，为什么能在短时间内形成一个被理解的闭环。
+            </p>
+
+            <div class="page-meta">
+              <span>主题：产品复盘</span>
+              <span>阅读：5 分钟</span>
+              <span>关键词：表达 / 闭环 / 现场反馈</span>
+            </div>
+          </div>
+
+          <div class="article-visual panel interactive-panel">
+            <img class="main-cover" src="../../assets/blog-covers/hackathon-map-cover.png" alt="黑客松地图产品封面" />
+            <img class="portrait-chip" src="../../assets/xulan-face-portrait.png" alt="序蓝头像" />
+          </div>
+        </section>
+
+        <section class="article-shell reveal">
+          <article class="article-body panel">
+            <h2>一句话说不清的功能，评委也很难记住</h2>
+            <p>
+              这次黑客松里最重要的收获，不是“又做了一个新功能”，而是学会把产品压缩到一句话。
+              如果一两句话说不清，再好的功能也可能在现场被忽视。
+            </p>
+            <p>
+              所以最后做的不是一个泛泛的“活动平台”，而是一个更具体的问题解法：
+              在会场里走动的人，能把问题直接标在地图上的具体位置上。
+            </p>
+
+            <h2>StagePulse Map 在解决什么问题</h2>
+            <p>
+              传统反馈常常只有“体验不好”这种模糊表达，但入口堵不堵、展区冷不冷、指示牌清不清楚，
+              这些问题本质上都发生在会场中的某个位置。
+            </p>
+            <ul>
+              <li>用户不用登录，打开网页就能看到会场地图。</li>
+              <li>点一下位置，就能创建反馈点、留言或提问题。</li>
+              <li>其他人可以投票，把重复出现的痛点顶上来。</li>
+              <li>工作人员能更直观看见哪里正在被忽视、哪里需要响应。</li>
+            </ul>
+
+            <h2>技术名词不是重点，闭环才是重点</h2>
+            <p>
+              这次用到的栈包括 Vercel、Supabase 和 Elastic，但最重要的从来不是把这些名字堆出来，
+              而是这个闭环是否成立：现场反馈能不能留下、问题能不能定位、重要程度能不能被表达。
+            </p>
+            <p>
+              黑客松时间很短，做不出一个完整平台很正常。真正关键的是不断砍掉不重要的页面和复杂权限，
+              只留下评委一眼能懂的核心动作。
+            </p>
+
+            <h2>为什么这个思路值得继续往下做</h2>
+            <p>
+              这个产品并不只适合黑客松会场。它还可以往商场、展会、学校开放日、会议中心延伸，
+              变成更通用的现场反馈面板和运营工具。
+            </p>
+            <blockquote>
+              6 小时里最难的，从来不是堆多少功能，
+              而是删到最后，剩下来的东西还能不能一眼看见价值。
+            </blockquote>
+            <p>
+              这也是为什么它适合被放到产品页继续孵化。内容已经有了，下一步要做的是把展示和使用场景继续长出来。
+            </p>
+          </article>
+
+          <aside class="sidebar-stack">
+            <article class="sidebar-card panel interactive-panel">
+              <img class="mini-cover" src="../../assets/blog-covers/hackathon-map-cover.png" alt="文章封面缩略图" />
+              <p class="mini-label">Quick Take</p>
+              <h3>一句话版本</h3>
+              <p>StagePulse Map 的价值不在“地图”本身，而在让现场问题被位置化、留痕化和投票化。</p>
+            </article>
+
+            <article class="sidebar-card panel interactive-panel">
+              <p class="mini-label">继续去哪</p>
+              <div class="reading-links">
+                <a class="link-inline" href="../../products/index.html">去产品页占位</a>
+                <a class="link-inline" href="../docker-n8n-setup/index.html">再看一个实操教程</a>
+              </div>
+            </article>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>一个能被一句话讲清楚的产品，更容易在有限时间里被理解、被记住，也更容易继续长出来。</p>
+        <a href="../../blog/index.html">返回 Blog</a>
+      </footer>
+    </div>
+
+    <script src="../../shared/script.js"></script>
+  </body>
+</html>

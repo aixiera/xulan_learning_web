@@ -3,181 +3,336 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xulan Learning · 文章目录</title>
+    <title>Xulan's AI Notes | 序蓝的主页</title>
     <meta
       name="description"
-      content="Xulan Learning 的文章站点首页。每一篇文章都单独归档为一个网页目录，并配套结构总览与参考来源子页面。"
+      content="序蓝的 AI 内容主页，聚合 AI 学习、产品拆解、信息判断与实践教程，并统一连接 Blog 与产品页。"
     />
-    <link rel="preload" as="image" href="./assets/xulan-face.png" />
+    <link rel="preload" as="image" href="./assets/xulan-cover-main.png" />
+    <link rel="preload" as="image" href="./assets/xulan-face-portrait.png" />
     <link rel="stylesheet" href="./shared/styles.css" />
+    <style>
+      #xulan-chat-box {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 340px;
+        height: 460px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+      }
+
+      #xulan-chat-messages {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .xulan-msg {
+        margin-bottom: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        max-width: 85%;
+        white-space: pre-wrap;
+      }
+
+      .xulan-user {
+        background: #111;
+        color: white;
+        margin-left: auto;
+      }
+
+      .xulan-bot {
+        background: #f1f1f1;
+        color: #111;
+        margin-right: auto;
+      }
+
+      #xulan-chat-input-row {
+        display: flex;
+        border-top: 1px solid #eee;
+      }
+
+      #xulan-chat-input {
+        flex: 1;
+        border: none;
+        padding: 12px;
+        outline: none;
+      }
+
+      #xulan-chat-send {
+        border: none;
+        padding: 0 16px;
+        background: #111;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
   </head>
-  <body class="site-home">
+  <body data-page="home">
     <div class="page-shell">
       <header class="topbar">
-        <a class="brand-mark" href="#top">Xulan Learning</a>
-        <nav class="topnav" aria-label="页面导航">
-          <a href="#articles">文章目录</a>
-          <a href="#structure">站点结构</a>
-          <a href="#workflow">后续扩展</a>
+        <a class="brand-mark" href="./index.html">Xulan's AI Notes</a>
+        <nav class="topnav" aria-label="主导航">
+          <a data-nav="home" href="./index.html">主页</a>
+          <a data-nav="blog" href="./blog/index.html">Blog</a>
+          <a data-nav="products" href="./products/index.html">产品</a>
         </nav>
       </header>
 
-      <main id="top">
-        <section class="hero hub-hero">
-          <div class="hero-copy hub-hero-copy">
-            <p class="eyebrow">Editorial Infrastructure</p>
-            <h1>
-              内容不再停留在单页展示，
-              <span>而是进入可持续扩展的专题体系。</span>
+      <main>
+        <section class="hero reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">AI PRODUCTS • STUDY • DISCOVERY</p>
+            <h1 class="display-title">
+              序蓝的
+              <span>AI Notes</span>
             </h1>
             <p class="lead">
-              `xulan_learning_web` 目前已经整理为“首页聚合 + 文章目录 + 子页面归档”的内容架构。后续每一篇文章都可以独立拥有自己的主页面、结构总览页与参考来源页，在保持统一视觉系统的同时，持续扩展为更完整的专题站点。
+              这里不再展示给前端用户无关的站点结构和制作备注，而是把内容本身放到前面。
+              现在这套站点会把视频文案、封面素材、产品思路和学习方法整理成真正能浏览的内容入口。
             </p>
 
-            <div class="hero-badges" aria-label="站点能力">
-              <span>文章归档</span>
-              <span>专题主页</span>
-              <span>结构总览</span>
-              <span>来源页</span>
-              <span>统一视觉系统</span>
+            <div class="pill-row" aria-label="内容方向">
+              <span>AI 依赖链</span>
+              <span>年轻人学习与自保</span>
+              <span>优质信息源</span>
+              <span>Docker + n8n</span>
+              <span>黑客松产品拆解</span>
             </div>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="#articles">查看第一篇文章</a>
-              <a class="button button-secondary" href="#structure">看目录结构</a>
+              <a class="button button-primary" href="./blog/index.html">进入 Blog</a>
+              <a class="button button-secondary" href="./articles/ai-dependency-chain/index.html">先读精选文章</a>
             </div>
 
-            <div class="hero-quote panel interactive-panel">
-              <p class="quote-label">当前站点定位</p>
-              <p class="quote-text">
-                首页负责内容导航与归档入口，文章页负责承载完整正文，子页面则用于拆分结构摘要、引用来源与后续延展内容。
-              </p>
+            <div class="stat-grid">
+              <article class="stat-card panel interactive-panel">
+                <strong>5</strong>
+                <span>篇完整博客</span>
+              </article>
+              <article class="stat-card panel interactive-panel">
+                <strong>3</strong>
+                <span>个主内容方向</span>
+              </article>
+              <article class="stat-card panel interactive-panel">
+                <strong>1</strong>
+                <span>个产品页占位</span>
+              </article>
             </div>
           </div>
 
-          <div class="hero-side">
-            <aside class="speaker-card panel interactive-panel">
-              <img src="./assets/xulan-face.png" alt="序蓝头像" />
-              <div class="speaker-meta">
-                <p class="speaker-tag">内容站点</p>
-                <h2>序蓝酱 · Xulan.jiang</h2>
-                <p class="speaker-credit">XuLan.Jiang制作</p>
-                <div class="social-links">
-                  <a href="https://space.bilibili.com/1633897017" target="_blank" rel="noopener noreferrer">
-                    Bilibili
-                  </a>
-                  <a
-                    href="https://www.youtube.com/channel/UCGqo7xqXjxtPmGkUPTQap-Q"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    YouTube
-                  </a>
-                  <a href="https://xhslink.com/m/4A08oihPmJo" target="_blank" rel="noopener noreferrer">
-                    小红书
-                  </a>
-                </div>
+          <div class="cover-stage panel interactive-panel">
+            <img class="main-cover" src="./assets/xulan-cover-main.png" alt="Xulan's AI Notes 主视觉封面" />
+            <img class="portrait-chip" src="./assets/xulan-face-portrait.png" alt="序蓝头像" />
+            <article class="cover-thumb thumb-one">
+              <img src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 依赖链封面" />
+              <div>
+                <p>Featured</p>
+                <strong>AI 到底依赖什么</strong>
               </div>
-            </aside>
-
-            <div class="panel hub-mini-map interactive-panel">
-              <p class="mini-label">站点地图</p>
-              <div class="expanded-stack">
-                <div><span>01</span>首页目录</div>
-                <div><span>02</span>文章主页</div>
-                <div><span>03</span>结构总览</div>
-                <div><span>04</span>参考来源</div>
+            </article>
+            <article class="cover-thumb thumb-two">
+              <img src="./assets/blog-covers/ai-sources-cover.png" alt="AI 信息源封面" />
+              <div>
+                <p>Research</p>
+                <strong>优质 AI 信息源</strong>
               </div>
-            </div>
+            </article>
+            <article class="cover-thumb thumb-three">
+              <img src="./assets/blog-covers/docker-n8n-cover.png" alt="Docker n8n 教程封面" />
+              <div>
+                <p>Tutorial</p>
+                <strong>Docker + n8n 安装</strong>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section class="section reveal" id="articles">
+        <section class="section reveal">
           <div class="section-heading">
-            <p class="section-kicker">Articles</p>
-            <h2>首篇专题已经完成独立归档</h2>
+            <p class="section-kicker">Home</p>
+            <h2>现在首页只做三件事：告诉你这里写什么、从哪开始看、还能去哪里。</h2>
             <p>
-              文章已经从根目录展示页中拆分出来，进入独立专题目录。后续新增内容时，可以在统一结构下继续扩展，不需要反复重做页面组织方式。
+              所有“给创作者的建议”“站点文件结构展示”“模板拆分说明”都已经从访客动线里移走。
+              首页现在只服务读者，负责把内容主题和入口讲清楚。
             </p>
           </div>
 
-          <div class="directory-grid">
-            <article class="directory-card panel interactive-panel">
-              <p class="mini-label">Article 01</p>
-              <h3>AI 都这么强了，它真正依赖的到底是什么？</h3>
-              <p class="page-summary">
-                主页面承载完整长文、七层依赖链、人的视角与网页阅读版排版；同时保留可拆分的结构摘要与来源子页面。
-              </p>
-              <div class="directory-links">
-                <a href="./articles/ai-dependency-chain/index.html">打开文章主页</a>
-                <a href="./articles/ai-dependency-chain/overview.html">打开结构总览</a>
-                <a href="./articles/ai-dependency-chain/sources.html">打开参考来源</a>
+          <div class="three-up">
+            <article class="panel interactive-panel">
+              <p class="mini-label">Study</p>
+              <h3>把 AI 学习从焦虑里拉出来</h3>
+              <p>不再只追工具热榜，而是回到人的精力、判断力、真实项目和长期积累。</p>
+            </article>
+            <article class="panel interactive-panel">
+              <p class="mini-label">Discovery</p>
+              <h3>看清哪些信息值得追</h3>
+              <p>从国内市场、海外创始人、行业数据到开发者社区，建立分层的信息判断系统。</p>
+            </article>
+            <article class="panel interactive-panel">
+              <p class="mini-label">Products</p>
+              <h3>把内容延伸到产品实践</h3>
+              <p>从黑客松地图产品到工具教程，内容会继续向产品理解和实际搭建延伸。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-heading">
+            <p class="section-kicker">Featured Blogs</p>
+            <h2>先看这三篇，会最快进入这套内容系统。</h2>
+          </div>
+
+          <div class="post-grid">
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 到底依赖什么封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Insight</span>
+                  <span>8 min</span>
+                </div>
+                <h3>AI 到底依赖什么</h3>
+                <p>把 AI 放回现实系统里看一遍：算力、数据、算法之外，还有工具、环境与治理。</p>
+                <a class="link-inline" href="./articles/ai-dependency-chain/index.html">打开文章</a>
               </div>
-              <p class="meta-row"><strong>归档路径：</strong> `articles/ai-dependency-chain/`</p>
             </article>
+
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="./assets/blog-covers/ai-learning-cover.png" alt="AI 时代年轻人学习封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Mindset</span>
+                  <span>6 min</span>
+                </div>
+                <h3>AI 时代最该保住什么</h3>
+                <p>这篇不讲花哨工具，重点是别把自己先耗空。精力、睡眠、判断力，比焦虑更值钱。</p>
+                <a class="link-inline" href="./articles/ai-learning-and-young-energy/index.html">打开文章</a>
+              </div>
+            </article>
+
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="./assets/blog-covers/ai-sources-cover.png" alt="优质 AI 信息源封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Signals</span>
+                  <span>9 min</span>
+                </div>
+                <h3>15 个优质 AI 信息源</h3>
+                <p>不是所有资讯都该混着看。把媒体、投资人、访谈、数据和社区拆层，判断会清晰很多。</p>
+                <a class="link-inline" href="./articles/ai-signal-sources/index.html">打开文章</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-cta">
+            <a class="button button-secondary" href="./blog/index.html">查看全部博客</a>
           </div>
         </section>
 
-        <section class="section reveal" id="structure">
+        <section class="section reveal">
           <div class="section-heading">
-            <p class="section-kicker">Structure</p>
-            <h2>当前文件结构已经分层整理</h2>
-            <p>站点文件目前按“共享资源”与“文章独立目录”两层拆分，既方便维护，也方便后续持续增加内容。</p>
+            <p class="section-kicker">Next</p>
+            <h2>Blog 负责内容归档，产品页负责后续上线预告。</h2>
           </div>
 
-          <article class="essay-card panel interactive-panel">
-            <div class="essay-body">
-              <pre class="structure-code"><code>xulan_learning_web/
-├─ index.html
-├─ assets/
-│  └─ xulan-face.png
-├─ shared/
-│  ├─ styles.css
-│  └─ script.js
-└─ articles/
-   └─ ai-dependency-chain/
-      ├─ index.html
-      ├─ overview.html
-      └─ sources.html</code></pre>
-            </div>
-          </article>
-        </section>
-
-        <section class="section reveal" id="workflow">
-          <div class="section-heading">
-            <p class="section-kicker">Workflow</p>
-            <h2>后续新增文章可以沿用同一套模板</h2>
-            <p>第一篇文章已经把目录规则和页面关系定下来，之后新增内容时，只需要复制目录并替换内容与素材即可。</p>
-          </div>
-
-          <div class="perspective-grid">
-            <article class="perspective-card panel interactive-panel">
-              <p class="mini-label">建议固定模板</p>
-              <ul>
-                <li>`articles/文章英文名/index.html`：完整文章主页面</li>
-                <li>`articles/文章英文名/overview.html`：结构总览页</li>
-                <li>`articles/文章英文名/sources.html`：来源与引用页</li>
-              </ul>
+          <div class="split-panels">
+            <article class="panel interactive-panel">
+              <p class="mini-label">Blog</p>
+              <h3>点击 Blog，按主题选文章。</h3>
+              <p>每篇内容都已经有自己的封面、摘要和独立页面，不需要再跳到无关的结构子页。</p>
+              <a class="link-inline" href="./blog/index.html">去 Blog 选择文章</a>
             </article>
 
-            <article class="perspective-card panel interactive-panel">
-              <p class="mini-label">后续可继续补</p>
-              <ul>
-                <li>文章封面图或插图放到对应文章自己的 `assets/` 子目录</li>
-                <li>根首页增加更多文章卡片</li>
-                <li>给每篇文章加发布日期、标签和上一篇/下一篇跳转</li>
-              </ul>
+            <article class="panel interactive-panel">
+              <p class="mini-label">Products</p>
+              <h3>产品界面先放在这里占位。</h3>
+              <p>目前会先写“正在开发 / 制作中，后续可能会上线 zzz~”，等产品整理好再继续扩展。</p>
+              <a class="link-inline" href="./products/index.html">去看产品页</a>
             </article>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>第一篇专题已经完成独立归档，后续内容可以直接沿用这套结构继续扩展。</p>
-        <a href="#top">回到顶部</a>
+        <p>序蓝的 AI Notes 现在以读者视角组织内容：首页、Blog、产品页三条线已经统一。</p>
+        <a href="./blog/index.html">继续阅读</a>
       </footer>
     </div>
 
     <script src="./shared/script.js"></script>
+        <div id="xulan-chat-box">
+        <div id="xulan-chat-messages"></div>
+
+        <div id="xulan-chat-input-row">
+          <input id="xulan-chat-input" placeholder="请输入你的问题..." />
+          <button id="xulan-chat-send">发送</button>
+        </div>
+      </div>
+        <script>
+      const input = document.getElementById("xulan-chat-input");
+      const sendBtn = document.getElementById("xulan-chat-send");
+      const messages = document.getElementById("xulan-chat-messages");
+
+      function addMessage(text, type) {
+        const div = document.createElement("div");
+        div.className = "xulan-msg " + type;
+        div.textContent = text;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      async function sendMessage() {
+        const text = input.value.trim();
+
+        if (!text) return;
+
+        addMessage(text, "xulan-user");
+        input.value = "";
+
+        addMessage("正在回复中...", "xulan-bot");
+
+        try {
+          const res = await fetch("/api/coze-chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              message: text,
+            }),
+          });
+
+          const data = await res.json();
+
+          const botMessages = document.querySelectorAll(".xulan-bot");
+          const lastBotMessage = botMessages[botMessages.length - 1];
+
+          lastBotMessage.textContent = data.answer || "暂时没有获取到回复。";
+        } catch (error) {
+          const botMessages = document.querySelectorAll(".xulan-bot");
+          const lastBotMessage = botMessages[botMessages.length - 1];
+
+          lastBotMessage.textContent = "请求失败，请稍后再试。";
+        }
+      }
+
+      sendBtn.addEventListener("click", sendMessage);
+
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          sendMessage();
+        }
+      });
+    </script>
   </body>
 </html>
