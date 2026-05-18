@@ -11,72 +11,7 @@
     <link rel="preload" as="image" href="./assets/xulan-cover-main.png" />
     <link rel="preload" as="image" href="./assets/xulan-face-portrait.png" />
     <link rel="stylesheet" href="./shared/styles.css" />
-    <style>
-      #xulan-chat-box {
-        position: fixed;
-        right: 24px;
-        bottom: 24px;
-        width: 340px;
-        height: 460px;
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 9999;
-        font-family: Arial, sans-serif;
-      }
-
-      #xulan-chat-messages {
-        flex: 1;
-        padding: 16px;
-        overflow-y: auto;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .xulan-msg {
-        margin-bottom: 12px;
-        padding: 10px 12px;
-        border-radius: 12px;
-        max-width: 85%;
-        white-space: pre-wrap;
-      }
-
-      .xulan-user {
-        background: #111;
-        color: white;
-        margin-left: auto;
-      }
-
-      .xulan-bot {
-        background: #f1f1f1;
-        color: #111;
-        margin-right: auto;
-      }
-
-      #xulan-chat-input-row {
-        display: flex;
-        border-top: 1px solid #eee;
-      }
-
-      #xulan-chat-input {
-        flex: 1;
-        border: none;
-        padding: 12px;
-        outline: none;
-      }
-
-      #xulan-chat-send {
-        border: none;
-        padding: 0 16px;
-        background: #111;
-        color: white;
-        cursor: pointer;
-      }
-    </style>
+    
   </head>
   <body data-page="home">
     <div class="page-shell">
@@ -268,71 +203,24 @@
         <a href="./blog/index.html">继续阅读</a>
       </footer>
     </div>
-
-    <script src="./shared/script.js"></script>
-        <div id="xulan-chat-box">
-        <div id="xulan-chat-messages"></div>
-
-        <div id="xulan-chat-input-row">
-          <input id="xulan-chat-input" placeholder="请输入你的问题..." />
-          <button id="xulan-chat-send">发送</button>
-        </div>
-      </div>
-        <script>
-      const input = document.getElementById("xulan-chat-input");
-      const sendBtn = document.getElementById("xulan-chat-send");
-      const messages = document.getElementById("xulan-chat-messages");
-
-      function addMessage(text, type) {
-        const div = document.createElement("div");
-        div.className = "xulan-msg " + type;
-        div.textContent = text;
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
-      }
-
-      async function sendMessage() {
-        const text = input.value.trim();
-
-        if (!text) return;
-
-        addMessage(text, "xulan-user");
-        input.value = "";
-
-        addMessage("正在回复中...", "xulan-bot");
-
-        try {
-          const res = await fetch("/api/coze-chat", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              message: text,
-            }),
-          });
-
-          const data = await res.json();
-
-          const botMessages = document.querySelectorAll(".xulan-bot");
-          const lastBotMessage = botMessages[botMessages.length - 1];
-
-          lastBotMessage.textContent = data.answer || "暂时没有获取到回复。";
-        } catch (error) {
-          const botMessages = document.querySelectorAll(".xulan-bot");
-          const lastBotMessage = botMessages[botMessages.length - 1];
-
-          lastBotMessage.textContent = "请求失败，请稍后再试。";
-        }
-      }
-
-      sendBtn.addEventListener("click", sendMessage);
-
-      input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          sendMessage();
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+      new CozeWebSDK.WebChatClient({
+        config: {
+          bot_id: '7640701942775775275',
+        },
+        componentProps: {
+          title: 'Coze',
+        },
+        auth: {
+          type: 'token',
+          token: process.env.COZE_API_KEY,
+          onRefreshToken: function () {
+            return process.env.COZE_API_KEY
+          }
         }
       });
     </script>
+  
   </body>
 </html>
