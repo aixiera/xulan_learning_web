@@ -4,12 +4,22 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    if (!process.env.COZE_API_KEY || !process.env.COZE_BOT_ID) {
+      return res.status(500).json({
+        error: "服务端未配置 Coze 环境变量",
+      });
+    }
+
     let body = req.body;
     if (typeof body === "string") {
       body = JSON.parse(body || "{}");
     }
 
     const message = body.message;
+    const userId =
+      typeof body.userId === "string" && body.userId.trim()
+        ? body.userId.trim().slice(0, 80)
+        : "website_user";
 
     if (!message) {
       return res.status(400).json({ error: "缺少用户问题" });
@@ -23,7 +33,7 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         bot_id: process.env.COZE_BOT_ID,
-        user_id: "website_user",
+        user_id: userId,
         stream: true,
         auto_save_history: false,
         additional_messages: [
