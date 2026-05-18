@@ -56,41 +56,53 @@ module.exports = async function handler(req, res) {
     }
 
     let answer = "";
+    let fallbackCompletedAnswer = "";
     let currentEvent = "";
 
     raw.split("\n").forEach((line) => {
-    if (line.startsWith("event:")) {
+      if (line.startsWith("event:")) {
         currentEvent = line.replace("event:", "").trim();
-    }
+        return;
+      }
 
-    if (line.startsWith("data:")) {
-        const dataText = line.replace("data:", "").trim();
-        if (!dataText || dataText === "[DONE]") return;
+      if (!line.startsWith("data:")) {
+        return;
+      }
 
-        try {
+      const dataText = line.replace("data:", "").trim();
+      if (!dataText || dataText === "[DONE]") {
+        return;
+      }
+
+      try {
         const data = JSON.parse(dataText);
 
         if (
-            currentEvent === "conversation.message.delta" &&
-            data.type === "answer" &&
-            data.content
+          currentEvent === "conversation.message.delta" &&
+          data.type === "answer" &&
+          data.content
         ) {
-            answer += data.content;
+          answer += data.content;
         }
 
         if (
-            currentEvent === "conversation.message.completed" &&
-            data.type === "answer" &&
-            data.content
+          currentEvent === "conversation.message.completed" &&
+          data.type === "answer" &&
+          data.content &&
+          !fallbackCompletedAnswer
         ) {
-            answer = data.content;
+          fallbackCompletedAnswer = data.content;
         }
-        } catch (e) {}
-    }
+      } catch (error) {
+        // Ignore malformed SSE fragments and keep parsing the rest.
+      }
     });
 
     return res.status(200).json({
-      answer: answer || "暂时没有获取到回复，请检查 Bot ID 或 API Key。",
+      answer:
+        answer.trim() ||
+        fallbackCompletedAnswer.trim() ||
+        "暂时没有获取到回复，请检查 Bot ID 或 API Key。",
     });
   } catch (error) {
     return res.status(500).json({
