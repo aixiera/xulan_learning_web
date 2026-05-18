@@ -202,24 +202,24 @@
         <p>序蓝的 AI Notes 现在以读者视角组织内容：首页、Blog、产品页三条线已经统一。</p>
         <a href="./blog/index.html">继续阅读</a>
       </footer>
-        <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
-        <script>
-          new CozeWebSDK.WebChatClient({
-            config: {
-              bot_id: '7640701942775775275',
-            },
-            componentProps: {
-              title: 'Coze',
-            },
-            auth: {
-              type: 'token',
-              token: process.env.COZE_API_KEY,
-              onRefreshToken: function () {
-                return process.env.COZE_API_KEY
-              }
-            }
-          });
-        </script>
     </div>
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+      new CozeWebSDK.WebChatClient({
+        config: {
+          bot_id: '7640701942775775275',
+        },
+        componentProps: {
+          title: 'Coze',
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_********',
+          onRefreshToken: function () {
+            return 'pat_********'
+          }
+        }
+      });
+    </script>
   </body>
 </html>
