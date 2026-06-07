@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手把手做一个 AI 网站客服 | Xulan's AI Notes</title>
+    <meta
+      name="description"
+      content="从业务资料、Coze 知识库、飞书多维表格到网站接入，这是一条把 AI 客服真正落到线上页面的完整路线。"
+    />
+    <link rel="preload" as="image" href="../../assets/blog-covers/ai-customer-service-cover.png" />
+    <link rel="stylesheet" href="../../shared/styles.css" />
+  </head>
+  <body data-page="blog">
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="../../index.html">Xulan's AI Notes</a>
+        <nav class="topnav" aria-label="主导航">
+          <a data-nav="home" href="../../index.html">主页</a>
+          <a data-nav="blog" href="../../blog/index.html">Blog</a>
+          <a data-nav="products" href="../../products/index.html">产品</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="article-hero reveal">
+          <div class="article-copy">
+            <p class="eyebrow">Tutorial · Issue 06</p>
+            <h1>
+              手把手做一个
+              <span>AI 网站客服</span>
+            </h1>
+            <p class="lead">
+              这篇不是只讲一个聊天框，而是把整条链路顺下来：先整理业务资料，再用 Coze 做知识库客服，
+              接着把用户提问写进飞书多维表格，最后接进自己的网站和 Vercel 部署环境。
+            </p>
+
+            <div class="page-meta">
+              <span>主题：Tutorial</span>
+              <span>阅读：11 分钟</span>
+              <span>关键词：Coze / 飞书 / Chat SDK / Vercel</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="../../blog/index.html">返回 Blog</a>
+              <a class="button button-secondary" href="../ai-prompt-playbook/index.html">再看提示词方法论</a>
+            </div>
+          </div>
+
+          <div class="article-visual panel interactive-panel">
+            <img class="main-cover" src="../../assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服教程封面" />
+            <img class="portrait-chip" src="../../assets/xulan-face-portrait.png" alt="序蓝头像" />
+          </div>
+        </section>
+
+        <section class="article-shell reveal">
+          <article class="article-body panel">
+            <h2>先别把它理解成“会聊天的挂件”</h2>
+            <p>
+              一个真正能上线的 AI 客服，最少要完成三件事：第一，能根据你的业务资料回答用户问题；
+              第二，能把用户提问和回复记录下来；第三，能稳定接进你自己的站点，而不是只停留在演示页。
+            </p>
+            <p>
+              所以这条路线的重点不是“做出一个机器人”，而是把内容、流程、记录和前端接入一起补齐。
+              只要这四块打通，它后面也可以继续接公众号、私信入口或者别的渠道。
+            </p>
+
+            <h2>第一步，先准备业务资料，不要急着写提示词</h2>
+            <p>
+              开工前先把自己的业务资料整理成一套能被知识库直接使用的内容。最实用的基本盘包括：
+              商品信息、FAQ、使用说明、售后服务、品牌介绍，以及招聘或合作信息。
+            </p>
+            <p>
+              如果你是照着模板做，一定要把模板里的示例内容全部替换成自己的业务，不要把占位文案留在知识库里。
+              这一步准备得越干净，后面客服回答越稳。
+            </p>
+
+            <h2>第二步，先复制 Coze 的智能客服模板，再改开场白</h2>
+            <p>
+              对新手来说，最快的路线不是从零开始搭工作流，而是先注册并进入 Coze，直接复制官方的智能客服模板。
+              免费额度通常已经足够做测试，尤其是在刚开始验证业务逻辑的时候。
+            </p>
+            <p>
+              复制模板后，先把客服名称、开场白和预设问题改成自己的业务语言。这样做的好处是：
+              模板本身已经被官方和大量用户验证过，省掉了很多无意义的试错。
+            </p>
+
+            <h2>第三步，把工作流里真正关键的几处信息改成自己的</h2>
+            <p>
+              打开工作流后，你看到的节点很多，但核心逻辑其实很清楚：用户先提问，系统做意图识别，
+              再去知识库检索资料，最后组织出一条面向用户的回答。我们要做的，就是把这套判断标准换成自己的业务版本。
+            </p>
+            <ol>
+              <li>先改意图识别：最少分成“和产品相关的问题”与“和产品无关的问题”两类。</li>
+              <li>再改兜底回复：无关问题直接收口，比如“我只回答和产品有关的问题”。</li>
+              <li>问题改写节点要利用上下文：前一轮用户问的是哪个产品，后一轮的追问要能接得住。</li>
+              <li>最后改回答生成规则：明确告诉模型只能回答知识库里有的内容，不要编价格，不要乱延伸。</li>
+            </ol>
+            <p>
+              回答生成节点里，建议把规则写得非常具体，比如：
+              只回答知识库中存在的信息；回答控制在 300 字以内；直接用“你”来称呼用户；
+              不要说“根据资料显示”；如果问题太复杂，就把用户引导到人工沟通或面谈。
+            </p>
+
+            <h2>第四步，把知识库拆成表格和文档两类去上传</h2>
+            <p>
+              回到 Coze 资源库以后，先把原模板自带的知识库解绑掉，然后新建自己的知识库。
+              表格适合上传商品信息表和 FAQ，文档适合上传使用手册、售后说明、品牌介绍和合作资料。
+            </p>
+            <p>
+              上传表格时，系统会让你选择搜索字段。只要这些字段会影响用户检索结果，就建议勾选进去，
+              这样模型更容易按产品名称或问题关键词命中对应内容。文档上传后则交给系统自动分段和清洗。
+            </p>
+            <p>
+              处理完成以后，回到工作流中的知识库节点，把检索目标切换成你刚刚上传的那一套资料。
+            </p>
+
+            <h2>第五步，把用户问答写进飞书多维表格</h2>
+            <p>
+              作为商家，只会回答还不够，最好把用户提问、客服回复和线索信息都记录下来。
+              这里最顺手的一条路，是接飞书多维表格。
+            </p>
+            <ol>
+              <li>先到飞书开放平台创建企业应用，并开通读写多维表格相关权限。</li>
+              <li>创建并发布应用版本，不发布的话，Coze 侧常常看不到最新授权能力。</li>
+              <li>新建一个多维表格，并把刚创建的应用添加到这份文档里。</li>
+              <li>回到 Coze 的写表格节点，按新版要求填入表格分享链接和相关配置。</li>
+            </ol>
+            <p>
+              这里最容易漏掉的一步，就是“把应用添加进那张具体的表里”。很多时候你明明授权成功了，
+              但还是找不到表格，问题就出在这里。
+            </p>
+
+            <h2>第六步，先在工作流里测通，再发布客服</h2>
+            <p>
+              测试时不要只问一种问题，至少要测两类：一类是明确和产品相关的问题，
+              例如“你有哪些产品”；另一类是完全无关的问题，像“今天天气怎么样”。
+            </p>
+            <p>
+              如果前者能正确调用知识库，后者又能被礼貌拦住，就说明工作流主逻辑是对的。
+              紧接着再去飞书表格里确认有没有新增记录。要是没写进去，优先检查四件事：
+              应用权限、表格是否添加了应用、字段名是否一致、以及 Coze 与飞书的授权是否仍然有效。
+            </p>
+
+            <h2>第七步，接网站时有两条路线</h2>
+            <p>
+              第一条路线是最快展示效果的 Chat SDK。你只需要在 Coze 的发布渠道里选择 Chat SDK，
+              复制官方代码，插到站点首页的 <code>&lt;/body&gt;</code> 前面即可。重点是追加聊天框，
+              不要把原来的首页代码覆盖掉。
+            </p>
+            <p>
+              第二条路线是自己写前端聊天框，再通过服务端 API 去请求 Coze。
+              这样做更灵活，也更适合和你的站点样式统一。前端聊天界面可以自己写，
+              真实请求 Coze 的代码则放到像 <code>api/coze-chat.js</code> 这样的服务端文件里，
+              不要把 API Key 直接暴露在前端。
+            </p>
+            <p>
+              如果你用 GitHub + Vercel 部署，记得把 <code>COZE_API_KEY</code> 和 <code>COZE_BOT_ID</code>
+              配到 Vercel 的环境变量里。环境变量补上以后，一定要重新部署，不然线上还是旧版本。
+            </p>
+
+            <h2>最后上线前，再做一次完整回归</h2>
+            <p>
+              最后一轮测试不要只盯聊天框本身，而要按真实用户路径走一遍：先确认首页没被改坏，
+              再确认聊天框能打开，然后问几个真实业务问题，最后回到飞书表格里检查记录有没有写进去。
+            </p>
+            <p>
+              只要这条链路完整跑通，你得到的就不再只是一个“看起来很酷”的 AI 客服，
+              而是一套已经能放进业务流程里的客服系统。
+            </p>
+          </article>
+
+          <aside class="sidebar-stack">
+            <article class="sidebar-card panel interactive-panel">
+              <img class="mini-cover" src="../../assets/blog-covers/ai-customer-service-cover.png" alt="文章封面缩略图" />
+              <p class="mini-label">Quick Take</p>
+              <h3>一句话版本</h3>
+              <p>先把资料和工作流改成自己的，再把知识库、飞书记录和网站接入连成一条完整链路。</p>
+            </article>
+
+            <article class="sidebar-card panel interactive-panel">
+              <p class="mini-label">上线前清单</p>
+              <ul>
+                <li>模板内容全部替换成自己的业务资料</li>
+                <li>知识库节点切到新上传的资料</li>
+                <li>飞书应用已授权并加入目标表格</li>
+                <li>前端聊天框没有覆盖首页原内容</li>
+                <li>Vercel 环境变量更新后已重新部署</li>
+              </ul>
+            </article>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>真正值钱的不是把机器人挂上去，而是让它能用你的资料回答问题、留下记录、稳定地跑在线上。</p>
+        <a href="../../blog/index.html">返回 Blog</a>
+      </footer>
+    </div>
+
+    <script src="../../shared/script.js"></script>
+  </body>
+</html>

@@ -12,6 +12,8 @@
     <link rel="preload" as="image" href="./assets/xulan-face-portrait.png" />
     <link rel="preload" as="image" href="./assets/xulan-chat-cover.png" />
     <link rel="preload" as="image" href="./assets/xulan-chat-avatar.png" />
+    <link rel="preload" as="image" href="./assets/blog-covers/ai-prompt-playbook-cover.png" />
+    <link rel="preload" as="image" href="./assets/blog-covers/ai-customer-service-cover.png" />
     <link rel="stylesheet" href="./shared/styles.css" />
   </head>
   <body data-page="home">
@@ -40,20 +42,20 @@
 
             <div class="pill-row" aria-label="内容方向">
               <span>AI 依赖链</span>
-              <span>年轻人学习与自保</span>
+              <span>提示词方法论</span>
+              <span>AI 客服搭建</span>
               <span>优质信息源</span>
               <span>Docker + n8n</span>
-              <span>黑客松产品拆解</span>
             </div>
 
             <div class="hero-actions">
               <a class="button button-primary" href="./blog/index.html">进入 Blog</a>
-              <a class="button button-secondary" href="./articles/ai-dependency-chain/index.html">先读精选文章</a>
+              <a class="button button-secondary" href="./articles/ai-prompt-playbook/index.html">先读精选文章</a>
             </div>
 
             <div class="stat-grid">
               <article class="stat-card panel interactive-panel">
-                <strong>5</strong>
+                <strong>7</strong>
                 <span>篇完整博客</span>
               </article>
               <article class="stat-card panel interactive-panel">
@@ -71,24 +73,24 @@
             <img class="main-cover" src="./assets/xulan-cover-main.png" alt="Xulan's AI Notes 主视觉封面" />
             <img class="portrait-chip" src="./assets/xulan-face-portrait.png" alt="序蓝头像" />
             <article class="cover-thumb thumb-one">
-              <img src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 依赖链封面" />
+              <img src="./assets/blog-covers/ai-prompt-playbook-cover.png" alt="AI 提示词心法封面" />
               <div>
-                <p>Featured</p>
-                <strong>AI 到底依赖什么</strong>
+                <p>Prompting</p>
+                <strong>顶级 AI 提示词心法</strong>
               </div>
             </article>
             <article class="cover-thumb thumb-two">
-              <img src="./assets/blog-covers/ai-sources-cover.png" alt="AI 信息源封面" />
+              <img src="./assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服封面" />
               <div>
-                <p>Research</p>
-                <strong>优质 AI 信息源</strong>
+                <p>Tutorial</p>
+                <strong>手把手做 AI 网站客服</strong>
               </div>
             </article>
             <article class="cover-thumb thumb-three">
-              <img src="./assets/blog-covers/docker-n8n-cover.png" alt="Docker n8n 教程封面" />
+              <img src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 依赖链封面" />
               <div>
-                <p>Tutorial</p>
-                <strong>Docker + n8n 安装</strong>
+                <p>Insight</p>
+                <strong>AI 到底依赖什么</strong>
               </div>
             </article>
           </div>
@@ -126,10 +128,36 @@
         <section class="section reveal">
           <div class="section-heading">
             <p class="section-kicker">Featured Blogs</p>
-            <h2>先看这三篇，会最快进入这套内容系统。</h2>
+            <h2>先看这三篇，会最快进入这套内容系统与实操路径。</h2>
           </div>
 
           <div class="post-grid">
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="./assets/blog-covers/ai-prompt-playbook-cover.png" alt="顶级 AI 提示词心法封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Prompting</span>
+                  <span>10 min</span>
+                </div>
+                <h3>顶级 AI 提示词心法</h3>
+                <p>把角色、任务、上下文、格式和迭代方式讲清楚，让提示词从“收藏模板”变成真正能落地的方法。</p>
+                <a class="link-inline" href="./articles/ai-prompt-playbook/index.html">打开文章</a>
+              </div>
+            </article>
+
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="./assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Tutorial</span>
+                  <span>11 min</span>
+                </div>
+                <h3>手把手做一个 AI 网站客服</h3>
+                <p>从 Coze 知识库、飞书表格记录到网站接入，把一个能真正上线的 AI 客服完整串起来。</p>
+                <a class="link-inline" href="./articles/ai-customer-service-website/index.html">打开文章</a>
+              </div>
+            </article>
+
             <article class="post-card panel interactive-panel">
               <img class="post-cover" src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 到底依赖什么封面" />
               <div class="post-body">
@@ -140,32 +168,6 @@
                 <h3>AI 到底依赖什么</h3>
                 <p>把 AI 放回现实系统里看一遍：算力、数据、算法之外，还有工具、环境与治理。</p>
                 <a class="link-inline" href="./articles/ai-dependency-chain/index.html">打开文章</a>
-              </div>
-            </article>
-
-            <article class="post-card panel interactive-panel">
-              <img class="post-cover" src="./assets/blog-covers/ai-learning-cover.png" alt="AI 时代年轻人学习封面" />
-              <div class="post-body">
-                <div class="tag-row">
-                  <span>Mindset</span>
-                  <span>6 min</span>
-                </div>
-                <h3>AI 时代最该保住什么</h3>
-                <p>这篇不讲花哨工具，重点是别把自己先耗空。精力、睡眠、判断力，比焦虑更值钱。</p>
-                <a class="link-inline" href="./articles/ai-learning-and-young-energy/index.html">打开文章</a>
-              </div>
-            </article>
-
-            <article class="post-card panel interactive-panel">
-              <img class="post-cover" src="./assets/blog-covers/ai-sources-cover.png" alt="优质 AI 信息源封面" />
-              <div class="post-body">
-                <div class="tag-row">
-                  <span>Signals</span>
-                  <span>9 min</span>
-                </div>
-                <h3>15 个优质 AI 信息源</h3>
-                <p>不是所有资讯都该混着看。把媒体、投资人、访谈、数据和社区拆层，判断会清晰很多。</p>
-                <a class="link-inline" href="./articles/ai-signal-sources/index.html">打开文章</a>
               </div>
             </article>
           </div>

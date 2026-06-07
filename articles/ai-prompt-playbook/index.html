@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>顶级 AI 提示词心法 | Xulan's AI Notes</title>
+    <meta
+      name="description"
+      content="把角色、任务、上下文、格式、参考和迭代方式讲清楚，让提示词从“收藏模板”变成真正能落地的方法论。"
+    />
+    <link rel="preload" as="image" href="../../assets/blog-covers/ai-prompt-playbook-cover.png" />
+    <link rel="stylesheet" href="../../shared/styles.css" />
+  </head>
+  <body data-page="blog">
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="../../index.html">Xulan's AI Notes</a>
+        <nav class="topnav" aria-label="主导航">
+          <a data-nav="home" href="../../index.html">主页</a>
+          <a data-nav="blog" href="../../blog/index.html">Blog</a>
+          <a data-nav="products" href="../../products/index.html">产品</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="article-hero reveal">
+          <div class="article-copy">
+            <p class="eyebrow">Prompting · Issue 07</p>
+            <h1>
+              顶级 AI
+              <span>提示词心法</span>
+            </h1>
+            <p class="lead">
+              真正的问题通常不是“你没收藏到足够多的模板”，而是你没有把脑子里的网状想法，
+              整理成 AI 能稳定执行的线性任务。把这件事讲清楚，提示词才会从玄学变成方法。
+            </p>
+
+            <div class="page-meta">
+              <span>主题：Prompting</span>
+              <span>阅读：10 分钟</span>
+              <span>关键词：角色 / 上下文 / 链式提示 / 迭代</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="../../blog/index.html">返回 Blog</a>
+              <a class="button button-secondary" href="../ai-customer-service-website/index.html">再看落地教程</a>
+            </div>
+          </div>
+
+          <div class="article-visual panel interactive-panel">
+            <img class="main-cover" src="../../assets/blog-covers/ai-prompt-playbook-cover.png" alt="AI 提示词教程封面" />
+            <img class="portrait-chip" src="../../assets/xulan-face-portrait.png" alt="序蓝头像" />
+          </div>
+        </section>
+
+        <section class="article-shell reveal">
+          <article class="article-body panel">
+            <h2>为什么很多人收藏了几百个模板，真到要用时还是不会写</h2>
+            <p>
+              因为大多数人的想法本来就是跳跃的、网状的，而提示词却是线性的文字输入。
+              如果你只是模糊地丢一句“帮我写一个厉害的方案”，AI 只能开始猜你的目标、语气、边界和交付形式。
+            </p>
+            <p>
+              一旦缺少上下文、限制条件和参考材料，输出就很容易变成空话、排比句和套话。
+              所以提示词的核心任务，不是“显得专业”，而是减少让 AI 猜你的成本。
+            </p>
+
+            <h2>先回到定义：提示词的目标，是让 AI 完整理解任务</h2>
+            <p>
+              提示词可以是指令、问题、背景描述，甚至是一份完整材料。
+              它最终都服务于同一个目标：让 AI 更完整地理解你到底要什么结果。
+            </p>
+            <p>
+              这也是为什么只背几个漂亮公式并不够。真正有用的提示词，一定会把任务场景、
+              结果目标和不能越界的地方一起写清楚。
+            </p>
+
+            <h2>最基础的一层框架，其实已经够你解决很多问题</h2>
+            <p>
+              市面上常见的方法，归根到底都在讲同几件事：指定角色、讲清目标、补充上下文、
+              给出限制、说明输出格式，再规定语气。
+            </p>
+            <p>
+              比如你要咨询志愿填报，不应该只说“帮我填志愿”，而应该先给 AI 一个合适的角色，
+              再把你的地区、分数、想去的城市、偏好的专业和风险承受能力交代清楚，
+              最后要求它用表格输出学校、专业、优势、风险和整体建议。
+            </p>
+
+            <h2>真正的难点，不是写字，而是先把脑子里的主干理顺</h2>
+            <p>
+              写作和表达最难的地方，往往是把脑子里一团网状想法整理成树状结构，
+              再把树状结构改写成能被别人读懂的线性文字。AI 很擅长清晰化、结构化和润色，
+              但不擅长替你决定什么才是重点。
+            </p>
+            <p>
+              所以人的价值仍然在洞察、提问、取舍和判断。你先定主干、抓冲突、找核心，
+              后面再让 AI 去扩写细节、校正语言、补充表达，效果会比一上来就让它“自由发挥”好很多。
+            </p>
+
+            <h2>把常见方法合并起来，可以得到一套更稳的工作框架</h2>
+            <ol>
+              <li>角色：你希望 AI 以什么身份来回答。</li>
+              <li>任务：这一轮到底只需要它完成什么事。</li>
+              <li>上下文：你的现状、目标、限制、受众和场景。</li>
+              <li>输出格式：表格、提纲、脚本、标题组，还是分步骤清单。</li>
+              <li>参考材料：样例、语气素材、原始资料、禁止偏离的范围。</li>
+              <li>评估标准：你怎么判断这轮输出算不算合格。</li>
+              <li>迭代方式：如果不合格，下一轮优先改什么。</li>
+            </ol>
+            <p>
+              你会发现，这套结构本质上都在做同一件事：别让 AI 猜它是谁、别让 AI 猜你在哪个场景、
+              别让 AI 猜你喜欢什么风格、也别让 AI 猜最后要怎么交付。
+            </p>
+
+            <h2>最实用的四个迭代动作，比“换个模型”更重要</h2>
+            <ol>
+              <li>回到框架补信息：加更多上下文、例子、角色或参考资料。</li>
+              <li>把长提示拆短：不要一次把所有要求糊成一大段，分步骤喂给 AI。</li>
+              <li>换一种问法：有时把营销计划换成“讲一个有吸引力的故事”，结果会更生动。</li>
+              <li>主动加限制：范围越清楚，AI 越容易靠近你真正想要的结果。</li>
+            </ol>
+            <p>
+              很多提示词问题，根本不是模型不行，而是任务颗粒度太粗、重点太散、边界太模糊。
+            </p>
+
+            <h2>再往上一层，就是链式提示和多轮推进</h2>
+            <p>
+              如果任务本身比较复杂，不要指望一条提示词把所有事都做完。
+              更稳的方式，是把任务拆成一连串互相衔接的小判断，这就是链式提示。
+            </p>
+            <p>
+              例如要给一本小说做营销，你可以先让 AI 生成三个一句话总结，
+              再让它比较三者哪个更适合当宣传主轴，再把最抓人的部分合成一句标语，
+              最后才去扩展成社交媒体短帖、详情页文案和六周推广计划。
+            </p>
+            <p>
+              类似地，抽象题目也可以并行展开几个不同方向，再从里面挑一个继续深化。
+              如果你连问题都想不明白，还可以反过来让 AI 帮你生成更好的提示词，这就是常说的 meta prompting。
+            </p>
+
+            <h2>一个足够通用的起手式，可以直接保存下来反复改</h2>
+            <pre><code>你是【角色】。
+我要做【任务】。
+受众是【人群】。
+背景是【现状 / 材料】。
+目标是【看完后要发生什么】。
+请用【输出格式】交付。
+语气要【风格】。
+参考【样例 / 资料】。
+不要出现【禁用表达】。
+写完后先按【评估标准】自查，再给我下一轮可迭代建议。</code></pre>
+            <p>
+              这套模板真正值钱的地方，不是让你机械填空，而是提醒你：
+              一条好提示词，必须把任务、受众、材料、目标和边界同时照顾到。
+            </p>
+
+            <h2>最后记住，提示词不是代替思考，而是放大思考</h2>
+            <p>
+              AI 负责整理、扩写、验证和润色，人负责洞察、提问、取舍和判断。
+              只要你能把主干搭出来，再让 AI 一轮一轮配合你迭代，通常都会比死背模板更快更稳。
+            </p>
+            <p>
+              所以真正的心法不是“记住多少花招”，而是学会把模糊想法整理成可执行结构，
+              再用多轮迭代把结果推到你满意的位置。
+            </p>
+          </article>
+
+          <aside class="sidebar-stack">
+            <article class="sidebar-card panel interactive-panel">
+              <img class="mini-cover" src="../../assets/blog-covers/ai-prompt-playbook-cover.png" alt="文章封面缩略图" />
+              <p class="mini-label">Quick Take</p>
+              <h3>一句话版本</h3>
+              <p>提示词写不好，往往不是因为模板太少，而是因为你没把任务、材料和边界整理清楚。</p>
+            </article>
+
+            <article class="sidebar-card panel interactive-panel">
+              <p class="mini-label">最短框架</p>
+              <ul>
+                <li>角色</li>
+                <li>任务</li>
+                <li>上下文</li>
+                <li>输出格式</li>
+                <li>参考材料</li>
+                <li>评估标准</li>
+                <li>迭代方式</li>
+              </ul>
+            </article>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>提示词不是越长越高级，而是越能减少误解、越能承接你的真实任务，就越值钱。</p>
+        <a href="../../blog/index.html">返回 Blog</a>
+      </footer>
+    </div>
+
+    <script src="../../shared/script.js"></script>
+  </body>
+</html>
