@@ -6,14 +6,12 @@
     <title>Xulan's AI Notes | 序蓝的主页</title>
     <meta
       name="description"
-      content="序蓝的 AI 内容主页，聚合 AI 学习、产品拆解、信息判断与实践教程，并统一连接 Blog 与产品页。"
+      content="序蓝的 AI 内容主页，围绕 Codex 多 Agent、提示词方法、AI 网站客服、Docker + n8n 与黑客松案例，展示真正接进工作流的实践轨迹。"
     />
     <link rel="preload" as="image" href="./assets/xulan-cover-main.png" />
-    <link rel="preload" as="image" href="./assets/xulan-face-portrait.png" />
-    <link rel="preload" as="image" href="./assets/xulan-chat-cover.png" />
-    <link rel="preload" as="image" href="./assets/xulan-chat-avatar.png" />
     <link rel="preload" as="image" href="./assets/blog-covers/ai-prompt-playbook-cover.png" />
     <link rel="preload" as="image" href="./assets/blog-covers/ai-customer-service-cover.png" />
+    <link rel="preload" as="image" href="./assets/blog-covers/hackathon-map-cover.png" />
     <link rel="stylesheet" href="./shared/styles.css" />
   </head>
   <body data-page="home">
@@ -23,125 +21,254 @@
         <nav class="topnav" aria-label="主导航">
           <a data-nav="home" href="./index.html">主页</a>
           <a data-nav="blog" href="./blog/index.html">Blog</a>
-          <a data-nav="products" href="./products/index.html">产品</a>
         </nav>
       </header>
 
       <main>
         <section class="hero reveal">
           <div class="hero-copy">
-            <p class="eyebrow">AI PRODUCTS • STUDY • DISCOVERY</p>
+            <p class="eyebrow">FIELDWORK • CODING • DELIVERY</p>
             <h1 class="display-title">
-              序蓝的
-              <span>AI Notes</span>
+              把学过的 AI
+              <span>真的接进工作流</span>
             </h1>
             <p class="lead">
-              这里不再展示给前端用户无关的站点结构和制作备注，而是把内容本身放到前面。
-              现在这套站点会把视频文案、封面素材、产品思路和学习方法整理成真正能浏览的内容入口。
+              这次首页不再摆一堆静态卡片，也不再把读者带去“占位页”。我把你真正做过的事情直接拉到前台:
+              看 Codex 多 Agent 怎么落到真实交付，整理提示词方法，把 Docker + n8n 跑起来，把 AI 客服接进网站，再把黑客松项目压缩成一句能被理解的话。
             </p>
 
             <div class="pill-row" aria-label="内容方向">
-              <span>AI 依赖链</span>
+              <span>Codex 多 Agent</span>
+              <span>Claude Code 工作流</span>
               <span>提示词方法论</span>
-              <span>AI 客服搭建</span>
-              <span>优质信息源</span>
+              <span>AI 网站客服</span>
               <span>Docker + n8n</span>
+              <span>黑客松地图案例</span>
+              <span>AI 信息源判断</span>
             </div>
 
             <div class="hero-actions">
               <a class="button button-primary" href="./blog/index.html">进入 Blog</a>
-              <a class="button button-secondary" href="./articles/ai-prompt-playbook/index.html">先读精选文章</a>
+              <a class="button button-secondary" href="./articles/codex-multi-agent-practical-video/index.html">先看多 Agent 那篇</a>
             </div>
 
             <div class="stat-grid">
               <article class="stat-card panel interactive-panel">
-                <strong>7</strong>
-                <span>篇完整博客</span>
+                <strong>8</strong>
+                <span>篇真实实践记录</span>
               </article>
               <article class="stat-card panel interactive-panel">
-                <strong>3</strong>
-                <span>个主内容方向</span>
+                <strong>6</strong>
+                <span>条已经跑通过的路径</span>
               </article>
               <article class="stat-card panel interactive-panel">
                 <strong>1</strong>
-                <span>个产品页占位</span>
+                <span>个持续更新的前台现场</span>
               </article>
             </div>
           </div>
 
-          <div class="cover-stage panel interactive-panel">
-            <img class="main-cover" src="./assets/xulan-cover-main.png" alt="Xulan's AI Notes 主视觉封面" />
-            <img class="portrait-chip" src="./assets/xulan-face-portrait.png" alt="序蓝头像" />
-            <article class="cover-thumb thumb-one">
-              <img src="./assets/blog-covers/ai-prompt-playbook-cover.png" alt="AI 提示词心法封面" />
-              <div>
-                <p>Prompting</p>
-                <strong>顶级 AI 提示词心法</strong>
-              </div>
+          <div class="constellation-stage panel interactive-panel">
+            <img class="stage-cover" src="./assets/xulan-cover-main.png" alt="Xulan's AI Notes 主视觉封面" />
+
+            <div class="signal-core">
+              <p class="signal-core__label">Live System</p>
+              <strong>从学工具到跑闭环</strong>
+              <span>内容、代码、工作流、案例表达，现在被放进同一块会发光的前台里。</span>
+            </div>
+
+            <article class="orbit-card orbit-card--1">
+              <p>拆任务</p>
+              <strong>把 Codex / Claude Code 讲成真实交付语言</strong>
+              <span>不是神化 agent，而是拆、跑、审、交。</span>
             </article>
-            <article class="cover-thumb thumb-two">
-              <img src="./assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服封面" />
-              <div>
-                <p>Tutorial</p>
-                <strong>手把手做 AI 网站客服</strong>
-              </div>
+
+            <article class="orbit-card orbit-card--2">
+              <p>接业务</p>
+              <strong>AI 网站客服跑进线上页面</strong>
+              <span>Coze、飞书记录和网页前台串成一个闭环。</span>
             </article>
-            <article class="cover-thumb thumb-three">
-              <img src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 依赖链封面" />
-              <div>
-                <p>Insight</p>
-                <strong>AI 到底依赖什么</strong>
-              </div>
+
+            <article class="orbit-card orbit-card--3">
+              <p>跑环境</p>
+              <strong>Docker + n8n 让自动化真正动起来</strong>
+              <span>先把地基装顺，再谈工作流和代理。</span>
             </article>
+
+            <article class="orbit-card orbit-card--4">
+              <p>做表达</p>
+              <strong>黑客松项目要能一句话被记住</strong>
+              <span>好案例不是堆功能，而是让价值被一眼看见。</span>
+            </article>
+
+            <span class="signal-beam signal-beam--1" aria-hidden="true"></span>
+            <span class="signal-beam signal-beam--2" aria-hidden="true"></span>
+            <span class="signal-beam signal-beam--3" aria-hidden="true"></span>
           </div>
         </section>
 
         <section class="section reveal">
           <div class="section-heading">
-            <p class="section-kicker">Home</p>
-            <h2>现在首页只做三件事：告诉你这里写什么、从哪开始看、还能去哪里。</h2>
+            <p class="section-kicker">Scroll Story</p>
+            <h2>这次动效不再只是“会动”，而是沿着你已经做过的事情一段段展开。</h2>
             <p>
-              所有“给创作者的建议”“站点文件结构展示”“模板拆分说明”都已经从访客动线里移走。
-              首页现在只服务读者，负责把内容主题和入口讲清楚。
+              我把首页编排成一条带节奏的工作流轨道。你往下滚时，左边的监视面板会跟着切换焦点，右边每一段都是一个真实动作:
+              拆任务、写方法、搭环境、接业务、讲案例、养判断。
             </p>
           </div>
 
-          <div class="three-up">
-            <article class="panel interactive-panel">
-              <p class="mini-label">Study</p>
-              <h3>把 AI 学习从焦虑里拉出来</h3>
-              <p>不再只追工具热榜，而是回到人的精力、判断力、真实项目和长期积累。</p>
+          <div class="story-layout">
+            <article class="story-monitor panel">
+              <div class="story-monitor__inner">
+                <p class="story-monitor__eyebrow" id="story-monitor-kicker">Workflow</p>
+                <h3 class="story-monitor__title" id="story-monitor-title">把 Codex 多 Agent 讲成真实交付语言</h3>
+                <p class="story-monitor__copy" id="story-monitor-copy">
+                  不是把 agent 说成一团神秘黑盒，而是拆清楚什么时候该分工，什么时候该复核，什么时候值得真的上多 agent。
+                </p>
+
+                <div class="story-monitor__meter">
+                  <span id="story-monitor-metric-label">当前焦点</span>
+                  <strong id="story-monitor-metric-value">拆 / 跑 / 审 / 交</strong>
+                </div>
+
+                <div class="story-monitor__grid" aria-hidden="true">
+                  <span class="story-monitor__dot story-monitor__dot--center"></span>
+                  <span class="story-monitor__dot story-monitor__dot--one"></span>
+                  <span class="story-monitor__dot story-monitor__dot--two"></span>
+                  <span class="story-monitor__dot story-monitor__dot--three"></span>
+                </div>
+              </div>
             </article>
-            <article class="panel interactive-panel">
-              <p class="mini-label">Discovery</p>
-              <h3>看清哪些信息值得追</h3>
-              <p>从国内市场、海外创始人、行业数据到开发者社区，建立分层的信息判断系统。</p>
-            </article>
-            <article class="panel interactive-panel">
-              <p class="mini-label">Products</p>
-              <h3>把内容延伸到产品实践</h3>
-              <p>从黑客松地图产品到工具教程，内容会继续向产品理解和实际搭建延伸。</p>
-            </article>
+
+            <div class="story-step-list">
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Workflow"
+                data-story-title="把 Codex 多 Agent 讲成真实交付语言"
+                data-story-copy="不是把 agent 说成一团神秘黑盒，而是拆清楚什么时候该分工，什么时候该复核，什么时候值得真的上多 agent。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="拆 / 跑 / 审 / 交"
+              >
+                <p class="story-step__index">01</p>
+                <h3>Codex 多 Agent</h3>
+                <p>你做过的不是抽象概念介绍，而是把 OpenAI、Claude Code 和普通人的交付节奏接在一起，让这件事能被看懂。</p>
+                <div class="story-step__meta">
+                  <span>Codex</span>
+                  <span>Claude Code</span>
+                  <span>真实工作流</span>
+                </div>
+              </article>
+
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Prompting"
+                data-story-title="把提示词从收藏夹模板改造成可执行方法"
+                data-story-copy="角色、任务、上下文、格式和迭代方式被你拆成清晰结构，页面上的节奏也跟着变成一层层展开，而不是平铺说明。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="角色 / 上下文 / 格式"
+              >
+                <p class="story-step__index">02</p>
+                <h3>提示词方法论</h3>
+                <p>这不是堆模板，而是把“怎么让 AI 真正理解任务”写成别人拿去就能用的方法，所以它值得被做成更有层次的视觉展开。</p>
+                <div class="story-step__meta">
+                  <span>Prompting</span>
+                  <span>方法论</span>
+                  <span>可执行</span>
+                </div>
+              </article>
+
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Setup"
+                data-story-title="先把 Docker + n8n 跑顺，再谈自动化的野心"
+                data-story-copy="真正的自动化不是一句口号，而是先让环境起得来、流程跑得通、节点接得上。这个页面里的每一次点亮都对应那种逐步接通的感觉。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="装环境 / 拉镜像 / 跑流程"
+              >
+                <p class="story-step__index">03</p>
+                <h3>Docker + n8n</h3>
+                <p>你把最容易让新手卡住的部分写清楚了: 虚拟化、WSL2、Docker Desktop、n8n 本地跑通，这就是一条很具体的完成线。</p>
+                <div class="story-step__meta">
+                  <span>Docker</span>
+                  <span>n8n</span>
+                  <span>环境搭建</span>
+                </div>
+              </article>
+
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Business"
+                data-story-title="把 AI 客服接进真实业务页面，而不是停在演示框"
+                data-story-copy="从业务资料整理、Coze 模板、飞书记录到网页接入，这是一条已经能真正上线的链路，所以这里的动画也应该有前台和后台互相点亮的感觉。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="资料 / 工作流 / 网站接入"
+              >
+                <p class="story-step__index">04</p>
+                <h3>AI 网站客服</h3>
+                <p>这件事和你做过的工作最直接相关，因为它把 AI 从“会说”推进到“能进流程、能留痕、能被使用”。</p>
+                <div class="story-step__meta">
+                  <span>Coze</span>
+                  <span>飞书记录</span>
+                  <span>网页接入</span>
+                </div>
+              </article>
+
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Case Study"
+                data-story-title="黑客松项目最重要的，是一句话就能被理解"
+                data-story-copy="StagePulse Map 的价值不在堆了多少功能，而在于能把问题标在具体位置上。这里的镜头感和光束，就是在模拟那种被迅速定位的表达。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="一句话价值 / 现场闭环"
+              >
+                <p class="story-step__index">05</p>
+                <h3>黑客松地图案例</h3>
+                <p>你做的不只是“一个项目”，还是一次把表达压缩到最清楚状态的训练，这很适合成为首页的高能段落。</p>
+                <div class="story-step__meta">
+                  <span>StagePulse Map</span>
+                  <span>案例表达</span>
+                  <span>闭环</span>
+                </div>
+              </article>
+
+              <article
+                class="story-step panel interactive-panel"
+                data-story-kicker="Signals"
+                data-story-title="最后回到判断力: 信息源和依赖链决定你怎么长期前进"
+                data-story-copy="不是所有 AI 内容都值得追。你已经把依赖链和信息源拆给读者看，所以收尾也应该落在判断力，而不是工具崇拜。"
+                data-story-metric-label="当前焦点"
+                data-story-metric-value="判断 / 筛选 / 长期积累"
+              >
+                <p class="story-step__index">06</p>
+                <h3>信息源与依赖链</h3>
+                <p>最后一段不是炫技，而是把节奏拉回长期主义: 你为什么看这些来源，为什么不被热榜牵着走。</p>
+                <div class="story-step__meta">
+                  <span>AI 依赖链</span>
+                  <span>15 个信息源</span>
+                  <span>长期判断</span>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
 
         <section class="section reveal">
           <div class="section-heading">
-            <p class="section-kicker">Featured Blogs</p>
-            <h2>先看这三篇，会最快进入这套内容系统与实操路径。</h2>
+            <p class="section-kicker">Featured Entries</p>
+            <h2>如果你想最快进入这套内容系统，先从这三篇开始。</h2>
           </div>
 
           <div class="post-grid">
             <article class="post-card panel interactive-panel">
-              <img class="post-cover" src="./assets/blog-covers/ai-prompt-playbook-cover.png" alt="顶级 AI 提示词心法封面" />
+              <img class="post-cover" src="./assets/codex-multi-agent/openai-codex-og.png" alt="AI 多模型多 Agent 到底怎么运作封面" />
               <div class="post-body">
                 <div class="tag-row">
-                  <span>Prompting</span>
-                  <span>10 min</span>
+                  <span>Workflow</span>
+                  <span>8 min</span>
                 </div>
-                <h3>顶级 AI 提示词心法</h3>
-                <p>把角色、任务、上下文、格式和迭代方式讲清楚，让提示词从“收藏模板”变成真正能落地的方法。</p>
-                <a class="link-inline" href="./articles/ai-prompt-playbook/index.html">打开文章</a>
+                <h3>AI 多模型多 Agent 到底怎么运作</h3>
+                <p>把 Codex、Claude Code 和普通人的交付节奏接在一起，讲清楚多 agent 真正值得上的时刻。</p>
+                <a class="link-inline" href="./articles/codex-multi-agent-practical-video/index.html">打开文章</a>
               </div>
             </article>
 
@@ -149,25 +276,25 @@
               <img class="post-cover" src="./assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服封面" />
               <div class="post-body">
                 <div class="tag-row">
-                  <span>Tutorial</span>
+                  <span>Business</span>
                   <span>11 min</span>
                 </div>
                 <h3>手把手做一个 AI 网站客服</h3>
-                <p>从 Coze 知识库、飞书表格记录到网站接入，把一个能真正上线的 AI 客服完整串起来。</p>
+                <p>从业务资料、Coze 工作流、飞书记录到网站接入，把真正能上线的一整条链路串起来。</p>
                 <a class="link-inline" href="./articles/ai-customer-service-website/index.html">打开文章</a>
               </div>
             </article>
 
             <article class="post-card panel interactive-panel">
-              <img class="post-cover" src="./assets/blog-covers/ai-dependency-cover.png" alt="AI 到底依赖什么封面" />
+              <img class="post-cover" src="./assets/blog-covers/hackathon-map-cover.png" alt="黑客松地图案例封面" />
               <div class="post-body">
                 <div class="tag-row">
-                  <span>Insight</span>
-                  <span>8 min</span>
+                  <span>Case Study</span>
+                  <span>5 min</span>
                 </div>
-                <h3>AI 到底依赖什么</h3>
-                <p>把 AI 放回现实系统里看一遍：算力、数据、算法之外，还有工具、环境与治理。</p>
-                <a class="link-inline" href="./articles/ai-dependency-chain/index.html">打开文章</a>
+                <h3>6 小时黑客松地图案例拆解</h3>
+                <p>看一个项目为什么能被迅速理解，也看清楚“表达能力”在有限时间里到底有多重要。</p>
+                <a class="link-inline" href="./articles/hackathon-map-product/index.html">打开文章</a>
               </div>
             </article>
           </div>
@@ -179,191 +306,41 @@
 
         <section class="section reveal">
           <div class="section-heading">
-            <p class="section-kicker">Next</p>
-            <h2>Blog 负责内容归档，产品页负责后续上线预告。</h2>
+            <p class="section-kicker">Reading Paths</p>
+            <h2>你可以按不同起点进入，但最后都会回到“让 AI 真正进入现实流程”这件事上。</h2>
           </div>
 
-          <div class="split-panels">
+          <div class="three-up">
             <article class="panel interactive-panel">
-              <p class="mini-label">Blog</p>
-              <h3>点击 Blog，按主题选文章。</h3>
-              <p>每篇内容都已经有自己的封面、摘要和独立页面，不需要再跳到无关的结构子页。</p>
-              <a class="link-inline" href="./blog/index.html">去 Blog 选择文章</a>
+              <p class="mini-label">从认知开始</p>
+              <h3>先看 AI 到底依赖什么</h3>
+              <p>如果你现在还容易被新模型热度带着跑，那就先把依赖链看明白，先稳住判断，再决定自己要学什么。</p>
+              <a class="link-inline" href="./articles/ai-dependency-chain/index.html">先看依赖链</a>
             </article>
 
             <article class="panel interactive-panel">
-              <p class="mini-label">Products</p>
-              <h3>产品界面先放在这里占位。</h3>
-              <p>目前会先写“正在开发 / 制作中，后续可能会上线 zzz~”，等产品整理好再继续扩展。</p>
-              <a class="link-inline" href="./products/index.html">去看产品页</a>
+              <p class="mini-label">从搭建开始</p>
+              <h3>先把一个能上线的链路跑出来</h3>
+              <p>如果你更想立刻做东西，那就从 Docker + n8n 和 AI 客服教程切进去，先让工作流真的动起来。</p>
+              <a class="link-inline" href="./articles/docker-n8n-setup/index.html">先跑环境</a>
+            </article>
+
+            <article class="panel interactive-panel">
+              <p class="mini-label">从表达开始</p>
+              <h3>先学怎么把价值说到别人能懂</h3>
+              <p>黑客松案例和提示词方法，都是在训练同一件事: 怎么把复杂东西压缩成可理解、可执行、可传播的版本。</p>
+              <a class="link-inline" href="./articles/ai-prompt-playbook/index.html">先看方法</a>
             </article>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>序蓝的 AI Notes 现在以读者视角组织内容：首页、Blog、产品页三条线已经统一。</p>
+        <p>这个首页现在不再像一个产品占位站，而更像一个持续发光的工作流舞台。</p>
         <a href="./blog/index.html">继续阅读</a>
       </footer>
     </div>
 
-    <button
-      id="xulan-chat-launcher"
-      class="chat-widget-launcher"
-      type="button"
-      aria-controls="xulan-chat-widget"
-      aria-expanded="false"
-    >
-      <span class="chat-widget-launcher__avatar">
-        <img src="./assets/xulan-chat-avatar.png" alt="" />
-      </span>
-      <span class="chat-widget-launcher__text">
-        <strong>问问序蓝酱助手</strong>
-        <span>产品问题 / n8n / Web App</span>
-      </span>
-    </button>
-
-    <aside
-      id="xulan-chat-widget"
-      class="chat-widget"
-      aria-hidden="true"
-    >
-      <div class="chat-widget__shell">
-        <div class="chat-widget__hero">
-          <button
-            id="xulan-chat-close"
-            class="chat-widget__close"
-            type="button"
-            aria-label="关闭聊天框"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4 6.4 19 5 17.6 10.6 12 5 6.4 6.4 5Z" />
-            </svg>
-          </button>
-
-          <div class="chat-widget__identity">
-            <img
-              class="chat-widget__avatar"
-              src="./assets/xulan-chat-avatar.png"
-              alt="序蓝头像"
-            />
-            <p class="chat-widget__eyebrow">WITH 序蓝</p>
-            <h2>序蓝酱产品智能客服</h2>
-          </div>
-        </div>
-
-        <div class="chat-widget__body">
-          <div id="xulan-chat-thread" class="chat-thread" aria-live="polite">
-            <article class="chat-message chat-message--assistant chat-message--welcome">
-              <p>你好呀宝子！我是序蓝酱产品小助手，专门解答你对序蓝酱产品的各种问题 🎉</p>
-            </article>
-          </div>
-
-          <div id="xulan-chat-prompts" class="chat-prompts" aria-label="预设问题">
-            <button
-              type="button"
-              class="chat-prompt"
-              data-prompt="什么是序蓝酱定制 n8n 工作流服务？"
-            >
-              什么是序蓝酱定制 n8n 工作流服务？
-            </button>
-            <button
-              type="button"
-              class="chat-prompt"
-              data-prompt="n8n 工作流服务价值在哪里？"
-            >
-              n8n 工作流服务价值在哪里？
-            </button>
-            <button
-              type="button"
-              class="chat-prompt"
-              data-prompt="设计并部署小型 Web App 服务怎么卖？"
-            >
-              设计并部署小型 Web App 服务怎么卖？
-            </button>
-          </div>
-
-          <form id="xulan-chat-form" class="chat-composer">
-            <button
-              id="xulan-chat-reset"
-              class="chat-composer__icon"
-              type="button"
-              aria-label="清空对话"
-              title="清空对话"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M9 3h6l1 2h4v2H4V5h4l1-2Zm-2 6h2v8H7V9Zm4 0h2v8h-2V9Zm4 0h2v8h-2V9ZM6 21a2 2 0 0 1-2-2V7h16v12a2 2 0 0 1-2 2H6Z"
-                />
-              </svg>
-            </button>
-
-            <div class="chat-composer__input-wrap">
-              <input
-                id="xulan-chat-input"
-                class="chat-composer__input"
-                type="text"
-                name="message"
-                maxlength="500"
-                placeholder="发送消息..."
-                autocomplete="off"
-              />
-            </div>
-
-            <button
-              id="xulan-chat-toggle-prompts"
-              class="chat-composer__icon"
-              type="button"
-              aria-label="显示或收起预设问题"
-              title="显示或收起预设问题"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7V4Z" />
-              </svg>
-            </button>
-
-            <button
-              id="xulan-chat-send"
-              class="chat-composer__send"
-              type="submit"
-              aria-label="发送消息"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 11.5 20.5 4 13 21l-2.2-6.1L3 11.5Zm8.6 1.5 1.1 3.1 3.7-8.3L7.8 11l3.8 2Z" />
-              </svg>
-            </button>
-          </form>
-
-          <p class="chat-note">内容由 AI 生成，仅供参考，具体服务请联系序蓝进一步确认。</p>
-        </div>
-      </div>
-    </aside>
-
     <script src="./shared/script.js"></script>
-
-    <script type="text/plain" id="coze-sdk-disabled">
-      <!-- Disabled in favor of /api/coze-chat server proxy.
-      <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"><\/script>
-      <script>
-        new CozeWebSDK.WebChatClient({
-          config: {
-            type: 'bot',
-            bot_id: '7640701942775775275',
-            isIframe: false,
-          },
-          componentProps: {
-            title: 'Coze',
-          },
-          auth: {
-            type: 'token',
-            token: 'pat_********',
-            onRefreshToken: function () {
-              return 'pat_********';
-            }
-          }
-        });
-      <\/script>
-      -->
-    </script>
   </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Blog | Xulan's AI Notes</title>
     <meta
       name="description"
-      content="序蓝的 Blog 列表页，统一收录 AI 依赖链、提示词方法、AI 客服实操、信息源、Docker 教程和产品复盘。"
+      content="序蓝的 Blog 列表页，统一收录 AI 依赖链、提示词方法、AI 客服实操、信息源判断、Docker 教程与黑客松案例复盘。"
     />
     <link rel="stylesheet" href="../shared/styles.css" />
   </head>
@@ -17,7 +17,6 @@
         <nav class="topnav" aria-label="主导航">
           <a data-nav="home" href="../index.html">主页</a>
           <a data-nav="blog" href="./index.html">Blog</a>
-          <a data-nav="products" href="../products/index.html">产品</a>
         </nav>
       </header>
 
@@ -26,12 +25,11 @@
           <div class="page-copy">
             <p class="eyebrow">Blog Library</p>
             <h1>
-              按主题
+              按路径
               <span>选一篇读</span>
             </h1>
             <p class="lead">
-              这里集中收录目前已经整理完成的 7 篇内容。你可以从认知、方法、提示词、教程、产品拆解五条线切进去，
-              不需要再看到任何给创作者自己看的后台说明页。
+              这里收录的是你已经实际写出来、也能被别人直接进入的内容。不是产品占位说明，也不是后台备注，而是一组真正和工作流、表达、判断力有关的前台页面。
             </p>
 
             <div class="pill-row">
@@ -40,7 +38,8 @@
               <span>Prompting</span>
               <span>Signals</span>
               <span>Tutorial</span>
-              <span>Product</span>
+              <span>Workflow</span>
+              <span>Case Study</span>
             </div>
           </div>
 
@@ -49,15 +48,17 @@
             <article class="cover-thumb thumb-one">
               <img src="../assets/blog-covers/ai-customer-service-cover.png" alt="AI 客服封面" />
               <div>
-                <p>Tutorial</p>
+                <p>Business</p>
                 <strong>做一个 AI 网站客服</strong>
+                <span>从资料到上线的完整链路。</span>
               </div>
             </article>
             <article class="cover-thumb thumb-two">
               <img src="../assets/blog-covers/ai-learning-cover.png" alt="AI 学习封面" />
               <div>
                 <p>Mindset</p>
-                <strong>先保住自己</strong>
+                <strong>先保住自己的节奏</strong>
+                <span>学工具之前先稳住身体、时间和判断。</span>
               </div>
             </article>
           </div>
@@ -65,6 +66,19 @@
 
         <section class="section reveal">
           <div class="blog-grid">
+            <article class="post-card panel interactive-panel">
+              <img class="post-cover" src="../assets/codex-multi-agent/openai-codex-og.png" alt="AI 多模型多 Agent 到底怎么运作封面" />
+              <div class="post-body">
+                <div class="tag-row">
+                  <span>Workflow</span>
+                  <span>8 min</span>
+                </div>
+                <h3>AI 多模型多 Agent 到底怎么运作</h3>
+                <p>借官方资料把 Codex、Claude Code 和普通人的真实工作接起来，讲清楚多 agent 什么时候值得上，怎么拆，怎么审。</p>
+                <a class="link-inline" href="../articles/codex-multi-agent-practical-video/index.html">打开文章</a>
+              </div>
+            </article>
+
             <article class="post-card panel interactive-panel">
               <img class="post-cover" src="../assets/blog-covers/ai-prompt-playbook-cover.png" alt="顶级 AI 提示词心法封面" />
               <div class="post-body">
@@ -82,7 +96,7 @@
               <img class="post-cover" src="../assets/blog-covers/ai-customer-service-cover.png" alt="AI 网站客服封面" />
               <div class="post-body">
                 <div class="tag-row">
-                  <span>Tutorial</span>
+                  <span>Business</span>
                   <span>11 min</span>
                 </div>
                 <h3>手把手做一个 AI 网站客服</h3>
@@ -144,14 +158,14 @@
             </article>
 
             <article class="post-card panel interactive-panel">
-              <img class="post-cover" src="../assets/blog-covers/hackathon-map-cover.png" alt="黑客松地图产品封面" />
+              <img class="post-cover" src="../assets/blog-covers/hackathon-map-cover.png" alt="黑客松地图案例封面" />
               <div class="post-body">
                 <div class="tag-row">
-                  <span>Product</span>
+                  <span>Case Study</span>
                   <span>5 min</span>
                 </div>
                 <h3>6 小时黑客松地图产品拆解</h3>
-                <p>把 StagePulse Map 从“做了什么”讲到“为什么能被理解”，聚焦一句话产品表达和闭环。</p>
+                <p>把 StagePulse Map 从“做了什么”讲到“为什么能被理解”，聚焦一句话价值表达和现场闭环。</p>
                 <a class="link-inline" href="../articles/hackathon-map-product/index.html">打开文章</a>
               </div>
             </article>
@@ -160,7 +174,7 @@
       </main>
 
       <footer class="footer">
-        <p>如果你是第一次来，建议先看 AI 依赖链，再看提示词方法和 AI 客服教程，最后再进信息源、学习方法与产品复盘。</p>
+        <p>如果你是第一次来，建议先看 AI 依赖链，再看提示词方法和 AI 客服教程，最后再进信息源、学习方法与黑客松案例复盘。</p>
         <a href="../index.html">回主页</a>
       </footer>
     </div>
